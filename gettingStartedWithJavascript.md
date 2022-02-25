@@ -166,5 +166,91 @@ addFavoriteBook("Mad Men and Specialists");
 printFavoriteBooks();
 favoriteBooks;
 
+- Read Chapter 1 of his book on Github to cement knowledge
+
+## Three Pillars of Javascript
+
+- Types/Coercion
+- Scope/Closures
+- this/Prototypes
+
+## Types/Coercion
+
+- 3 subtopics
+    1. Primitive Types
+    2. Converting Types
+    3. Checking Equality
+- Alot of people do not try to deeply understand it and it is quite important to do so.
+
+# Primitive Types
+
+Everything is not an object in javascript.
+Primitive types include
+1. undefined
+2. string
+3. number
+4. boolean
+5. object
+6. symbol (recently added)
+- Variables do not have types, values do. In javascript, variables can hold anything, just the values that have types.
+
+Whether the value has been declared and not assigned a value or even not being declared at all, javascript returns "undefined" on both.
+
+When you assign null to a variable, it returns a type of Object.
+
+Functions will return a type of function
+
+Array will return a type of object
+
+- Values with special behaviors
+1. NaN value
+    This value pops up when you try to do something for instance like dividing a sentence by a number eg;
+    var carabao = 'Liverpool play Chelsea this weekend'
+    var result = carabao / 2;
+
+    result will return NaN
+
+
+## Type Coercion (Conversion of a Type)
+
+the "new" keyword is used to make new instances of things like objects, array, function, date, regexp, error
+
+We do not use new for strings, numbers and booleans
+
+var today = new Date("February 25, 2022");
+typeof today will be object so use new when trying to instantiate objects
+
+today.toUTCString();
+
+var myheartBeat = String(72);
+
+All languages always convert from one type to another
+
+Think about the code below
+
+var statement1 = "We have ";
+var numFootballers = 4;
+var statement2 = " GOATs in football right now. Pele, Maradona, Ronaldo and Messi";
+
+console.log(statement1 + numFootballers + statement2);
+
+Now imagine the code 
+var numStudents = 25;
+
+console.log(
+    `There are ${numStudents+""} students`
+)
+
+Those double quotes in the literal will convert the numStudents to a string.
+
+If only one side is a string then everything else will be converted to a string. The plus operator will only convert to number if both values are numbers
+
+Number + Number = Number
+Number + String = String
+String + Number = String
+String + String = String
+
+
+
 
 
