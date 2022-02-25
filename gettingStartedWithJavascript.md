@@ -131,16 +131,16 @@ In summary, a function is a collection of statements that we want to use in diff
 
 ## Little Exercise
 
-// const addFavoriteBook = (bookName) => {
-//   let favoriteBooks = [];
-//   if (bookName.!includes("Great")) {
-//     favoriteBooks.push();
-//   }
-  
-//   const printFavoriteBooks = () => {
-//     console.log(`Favorite Books`)
-//   }
-// };
+const addFavoriteBook = (bookName) => {
+let favoriteBooks = [];
+if (bookName.!includes("Great")) {
+    favoriteBooks.push();
+}
+
+const printFavoriteBooks = () => {
+    console.log(`Favorite Books`)
+}
+};
 
 const addFavoriteBook = (bookName) => {
   if (!bookName.includes("Great")) {
