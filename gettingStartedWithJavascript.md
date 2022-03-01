@@ -380,8 +380,71 @@ A function's "this" keyword references the execution context for that call, dete
 
 A this-aware function can thus have a different context each time it's called, which makes it more flexible & reusable.
 
+If it has a "this" keyword then it is a "this-aware" function.
+
 For example;
 
 var workshop = {
-    
+    teacher: "Kyle", 
+    ask(question) {
+        console.log(this.teacher, question);
+    }
+};
+
+workshop.ask("What is implicit binding?");
+
+To determine what the "this" keyword is going to point at, you look at the invocation of the function that calls the function and the object that references it. To explain further our "this" in this context will be gotten from the workshop.ask function which references the workshop object. We can call this an implicit binding.
+
+We can have a function and the this keyword context situated in another function call site, for example
+
+function ask(question) {
+    console.log(this.teacher, question);
 }
+
+function otherClass() {
+    var myContext = {
+        teacher: "Kyle Simspon";
+    };
+    ask.call(myContext, "Who is ");
+}
+
+When you use the .call on a method and give an object for the this keyword, we can call that explicit binding.
+
+## Protoypes
+You cannot understand the this keyword without prototype and viceversa.
+I do not really understand "prototypes". Mind couldn't focus on the explanation. Have to try my best to do further reading on that.
+function workshop (teacher) {
+  this.teacher = teacher;
+}
+
+workshop.prototype.ask = function(question) {
+  console.log(this.teacher, question);
+}
+
+var deepJS = new workshop("Kyle")
+var reactJS = new workshop("Suzy")
+
+deepJS.ask("Is prototype a class?")         
+reactJS.ask("Is this a prototype?")         
+
+Prototype means that it is an object where any instanced are going to be linked to.
+
+## Class
+- Same mechanism as prototype but the syntax is much cleaner.
+
+class Workshop {
+    constructor(teacher) {
+        this.teacher = teacher;
+    }
+    ask(question) {
+        console.log(this.teacher, question);
+    }
+}
+
+var deepJS = new Workshop("Kyle");
+var reactJS = new Workshop("Suzy");
+
+deepJS.ask("Is 'class' a class?");    
+deepJS.ask("Is this class ok?");    
+
+
