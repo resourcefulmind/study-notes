@@ -252,7 +252,136 @@ Number + String = String
 String + Number = String
 String + String = String
 
-For Booleans, 
+For Booleans, there are two values falsy and truthy. This means that which values when we convert them will become false (falsy) and which values when we convert them will become true (truthy)?
+
+Falsy values are 0, -0, null, NaN, false, undefined.
+Truthy values include strings like "foo", numbers like 23, objects, arrays, true, functions, etc
+
+The expression you pass to an if statement has to result in a boolean and if it doesn't, JS will invoke a boolean conversion.
+
+## Coercion Best Practices
+- A quality JS program embraces coercions, making sure the types involved in every operation are clear. If you make your types obvious in your programmes, a vast majority of corner case issues go away.
+
+## Equality
+
+- GENERAL CONVENTION
+== will check value (loose)
+=== will check value and type (strict)
+It isn't actually true because the difference is whether coercion is allowed.
+
+== allows coercion when the types are different but === disallows coercion when the types are different.
+
+When the types are already the same, the == and === do the same thing.
+
+It's only when the types are different that they have a different behavior.  For example
+
+    var workshop1 = { topic: null };
+    var workshop2 = {};
+
+    if {
+        {workshop1.topic === null || workshop1.topic === undefined} && 
+        {workshop2.topic === null || workshop2.topic === undefined} &&
+    } {
+        <!--  -->
+    }
+
+    if {
+        workshop1.topic == null &&
+        workshop2.topic == null
+    } {
+        <!--  -->
+    }
+
+- Javascript has a dynamic type system, which uses various forms of coercion for value type conversion, including equality comparisons. You simply cannot write good javascript code without knowing what the types are.
+
+## Scope
+- Summarily, scope means where the javascript engine looks for things.
+e.g x = 42; 
+Te scope will be figuring out where to find x in memory.
+
+Imagine the example;
+
+var name = "Opeyemi";
+
+function otherClass() {
+    name = "Stephen";
+    occupation = "Software engineer";
+    console.log("This is what I do for a living");
+}
+
+otherClass();
+
+In the above, a variable name is assigned a value of Opeyemi and that same name is assigned stephen inside the otherClass() function body.
+
+BEcause there is no declaration for teacher inside the otherClass, the rules of scope tell us that it will find the variable in the outer scope. 
+Scope is the rule for figuring out where to set the variables.
+ As for occupation, when you create a variable that has not been declared before in the local scope such as the function otherClass, that variable will be created in the global scope.
+
+## Undefined vs Undeclared
+
+First and foremost, they are not the same. Undeclared means it has never been declared. Undefined is a variable that has been declared but doesn't have a value.
+
+## Function Expressions
+It is a function that is assigned as a value somewhere.They can be passed as arguments or assigned to variable or returned as a value.
+
+An example will be
+
+var clickHandler = function() {
+    <!--  -->
+}
+
+The above is called an anonymous function expression
+
+var keyHandler = function keyHandler() {
+    <!--  -->
+}
+
+The above is called "named" function expression
+
+Reasons to be aware of their differences are;
+
+Consider these two;
+var ids = people.map(person => person.id);
+
+var ids = people.map(function getId(persom)){
+    return person.id;
+}
+
+- A named function will most likely tell you what the function does from the name
 
 
+## IIFEs Immediately Invoked Function Expressions
 
+They are used to write blocks of code which you wnt to protect from encroachment and outer/global scope. IIFEs executes immediately.
+The main advantage is that we get a new block of scope and if a variable is declared inside that function, it doesn't affect other parts of the outside scope.
+
+## Closure
+This is when a function "remembers" the variables outside of it, even if you pass that function elsewhere be it as a falback or as a value or something.
+
+Two Parts: 
+a. The function remembers variables declared outside of it like in some outer scope.
+b. It's only closure if we pass it somewhere else.
+
+function ask(question) {
+    setTimeout(function waitASec() {
+        console.log(question);
+    }, 100);
+}
+
+ask("What is closure?");
+
+Over here, the waitASec() has closure over the question variable.
+
+## #rd Pillar Of Javascript (this/prototypes)
+
+The most important thing here is how the function was called. That's what tell us what the "this" does.
+
+A function's "this" keyword references the execution context for that call, determined entirely by how the function was called.
+
+A this-aware function can thus have a different context each time it's called, which makes it more flexible & reusable.
+
+For example;
+
+var workshop = {
+    
+}
