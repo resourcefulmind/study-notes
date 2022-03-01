@@ -243,6 +243,8 @@ console.log(
 
 Those double quotes in the literal will convert the numStudents to a string.
 
+When a string is an operand of the + operator, Javascript instead of converting the string to a Number, converts the number to a string.
+
 If only one side is a string then everything else will be converted to a string. The plus operator will only convert to number if both values are numbers
 
 Number + Number = Number
@@ -250,7 +252,7 @@ Number + String = String
 String + Number = String
 String + String = String
 
-
+For Booleans, 
 
 
 
