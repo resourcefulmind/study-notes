@@ -79,7 +79,7 @@ function showMyName(name) {
         let prompt = `My name is ${name}`; 
         console.log( prompt );
     }
-    showMyName("Warisi");
+    showMyName("Opeyemi");
 
 
 function myDreams(coFounder, company) {
@@ -88,7 +88,85 @@ function myDreams(coFounder, company) {
 
 myDreams("Gui", "GameBitAvax");
 
+<!-- In the above, the given values are copied to local variables from and text. Then the function uses them. -->
+
+In the next example, we declare a variable `coFounder` and pass it to the function. 
+
+Please note: **the function changes coFounder, but the change is not seen outside, because a function always gets a copy of the value:**
+
+function myDreams(coFounder, company) {
+    coFounder = `"brilliant" ${coFounder}`;
+
+    console.log(`I hope to be working for ${coFounder} to build ${company} soon. It would be a dream come true and a huge step in my career.`) 
+}
+
+let coFounder = "Gui";
+
+myDreams(coFounder, "GameBitAvax");
+
+# Key Points
+
+When a value is passed as a function parameter, it’s also called an argument.
+
+In other words, to put these terms straight:
+
+1. A parameter is the **variable** listed inside the parentheses in the function declaration (it’s a declaration time term)
+2. An argument is the **value** that is passed to the function when it is called (it’s a call time term).
+**We declare functions listing their parameters, then call them passing arguments.**
 
 
+# Default Values
+If a function is called, but an argument is not provided, then the corresponding value becomes undefined. This value can also be set to even more complex expressions that will only be invoked and/or assigned if the specified function parameter is missing.
 
+- Sometimes it makes sense to assign default values for parameters not in the function declaration, but at a later stage.
 
+We can check if the parameter is passed during the function execution, by comparing it with undefined
+I feel like this can help with debugging code when we are not getting the required results
+
+function showMyName(name) {
+
+        if (name === undefined) {
+            name = 'there is a problem';
+        }
+        console.log(name);
+    }
+    showMyName();
+
+# Returning a Value
+- A function can return a value back into the calling code as the result.
+
+function sum(a, b) {
+  return a + b;
+}
+
+let result = sum(1, 2);
+
+- The directive return can be in any place of the function. When the execution reaches it, the function stops, and the value is returned to the calling code (assigned to result above) but it will not print or display unless it is told to do so.
+
+- It is possible to use return without a value. That causes the function to exit immediately.
+
+- If a function does not return a value, it is the same as if it returns undefined:
+    function doNothing() {
+
+    }
+- An empty return is also the same as return undefined:
+    function doNothing() {
+        return;
+    }
+
+- Even if the expression you want to return is long, never put it on a new line as JS assumes a semi-colon and will treat that code you put on a new line as a new line of code instead of part of the return value. Rather, start the return expression on the same line and then continue or put a parentheses after the return and then you can type on the next line.
+
+# How To Name A Function
+
+- Should usually start with a verb since functions are actions.
+- Should be brief and accurate and describe what it does.
+Example;
+
+"get…" – return a value,
+"calc…" – calculate something,
+"create…" – create something,
+"check…" – check something and return a boolean, etc
+
+- A function should do exactly what is suggested by its name, no more. One function, one action. Two independent actions usually deserve two functions, even if they are usually called together (in that case we can make a 3rd function that calls those two.
+
+- Functions should be short and do exactly one thing. If that thing is big, maybe it’s worth it to split the function into a few smaller functions. Sometimes following this rule may not be that easy, but it’s definitely a good thing.
