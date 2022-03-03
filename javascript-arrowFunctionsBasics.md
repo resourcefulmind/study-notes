@@ -54,3 +54,4 @@ welcome();
 - **Curly braces should be used when writing multiline arrow functions and then a normal return must be used.**
 
 
+# Practice
