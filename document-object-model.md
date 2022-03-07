@@ -50,16 +50,64 @@ As against
 headerTitle.style.border-bottom = '3px solid red';
 
 
+Summary:
+- Target styles first
+- Assign them to a variable
+- Manipulate.
+
+# Targeting Elements by classname
+
+It is for targeting a list of items with the same class. In our code we can do something like changing the color and text of the list items
+
+var items = document.getElementsByClassName('list-group-item')
+List items can then be treated as an array and accessed via index.
+items[1].style.color = 'green';
+items[3].style.background = 'gray';
 
 
+items.style.fontSize = '40px';
+This won't wotk because the items are a html colection treated like an aray and need to loop through the items
+
+for (let i = 0; i < items.length; i++) {
+    items[i].style.fontSize = '40px';
+}
+
+## Targeting Elements By Tag Name eg h1 or li
+
+- It does the same thing as getting the elements by class name. The only difference is that in the class, when you add a new item to join the old ones, it doesn't have any effect or take on any of the styles or manipulations of the old set.
+If you do it by tag name though, there will be an inheritance from the old ones and it will have their style
 
 
+## Query Selector
+- used for one item and even if they are more thn one on the page, it will grab only the first one
+You can select anything as long as you use the right syntax.
+For instance changing the backgrounf of the header using query selector wil go like this
 
+var changeHeader = document.querySelector('#main');
+changeHeader.style.background = 'red';
 
+- when there is a list and you use query selector, it will only give the first the application. If you want to apply to another member of the list usihg query selector, you can use the "nth-child" or "last-child" css selectors.
 
+var secondItem = document.querySelector('.list-group-item:nth-child(2)')
 
+secondItem.style.background = 'brown';
 
+## QuerySelectorAll
+- Will select everything with the same class or element or  or attriute, etc
 
+var titles = document.querySelectorAll('.title')
+titles[0].textContent= 'Dubbu dubbu'
+
+- Can also be used to give different styles to say an even or odd collection on a list
+
+var odd = document.querySelector('li:nth-child(odd)');
+
+for (var i = 0; i < odd.length; i++) {
+    odd[i].style.backgroundColor = 'white';
+}
+
+## TRAVERSING THE DOM
+- Simply means the different realtionships that can exist between the parent node, child nodes and sibling nodes.
 
 
 
