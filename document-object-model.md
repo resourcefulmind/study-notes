@@ -108,6 +108,7 @@ for (var i = 0; i < odd.length; i++) {
 
 ## TRAVERSING THE DOM
 - Simply means the different realtionships that can exist between the parent node, child nodes and sibling nodes.
+- Parent containers can be styled if the children are known and targeted. For instance, if we check for the parent of the list, we can style the parent of that list
 
 
 
