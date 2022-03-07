@@ -108,17 +108,38 @@ for (var i = 0; i < odd.length; i++) {
 
 ## TRAVERSING THE DOM
 - Simply means the different realtionships that can exist between the parent node, child nodes and sibling nodes.
-- Parent containers can be styled if the children are known and targeted. For instance, if we check for the parent of the list, we can style the parent of that list
+- Parent containers can be styled if the children are known and targeted. For instance, if we check for the parent of the list, we can style the parent of that list using parentNode. parentNode and parentElement function the same way on a large scale.
 
+var itemList = document.querySelector('#items');
+itemList.parentNode.style.backgroundColor = '#f4f4f4';
 
+- Child nodes also exist. No one suggests using them. Instead use children. The children will be a HTML collection and DOM manipulation can be performed on them using the indexing method.
 
+- firstElementChild and firstElement are two operations that can be performed just like childNodes and will be done on the first child of the element. Same as lastElementChild.
 
+- And like the above, nextSibling will include the text nodes so use nextElementSibling. previousElementSibling can be used as well.
 
+- For simple DOM manipulation, you do not need jQuery.
 
+## Creating Elements and Inserting Them Into The DOM
 
+- To create an entirely new div and add stuff to it. 
+<!-- - Create containing div first -->
+var newDiv = document.createElement('div');
+<!-- maybe give it a class and an id -->
+newDiv.className = 'hello';
+newDiv.id = 'hello-there';
+<!-- Add an attribute -->
+newDiv.setAttribute('title', 'Hey Div');
+<!-- create text node -->
+var newDivText = document.createTextNode('My name is Opeyemi');
+<!-- Add the text created to the div -->
+newDiv.appendChild(newDivText);
+<!-- place the div right below the header with the clss container -->
+var container = document.querySelector('header .container');
+var h1 = document.querySelector('header h1');
 
+<!-- And just like that a new div was created and we can add different things to it like change the way it looks -->
+newDiv.fontSize = '40px';
 
-
-
-
-
+container.insertBefore(newDiv, h1);
