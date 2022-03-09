@@ -38,5 +38,57 @@ html5up.net
 wrapbootstrap.com
 themeforest.net
 
+# hosting
+You can use Netlify for that
+
+# How to get clients
+- Networking
+- Listings
+- PLACES YOU KNow
+- Localization is of great value
+- Talk to the owners of some of the places that you go to chill and do stuff
+- Check whether they have a website, if they don't, offer to build one. If they do, offer to improve it.
+
+- Overbound means picking a niche and going for it
+- Introduce yourself appropriately as you are networking and meeting people for example; 
+"Hi I am Opeyemi, I am a software engineer and I build websites and web applications for clients in the Lagos Area"
+- Do that to everyone you meet and register yourself in their brains
+
+- Use local listings like craigslist, upwork, facebook marketplaces et al
+- Talk to everyday places that you go to, barbershops, lounges, hotels, clubs and stuff.
+- Do they have a web presence? Do they want something better?
+- Your niche could be restaurants or plumbing businesses or hotel reservations.
+- Compile a list of the niche
+- Find the businesses in that niche and put them on a sheet
+- CALL them up. New or improved businesses. Use picture with the questions you took on your phone(note to self)
+- Build a landing page if you are going in as an agency or your own portfolio if it's just you.
+
+# Building Authority
+- Pick something and become an expert around it
+
+# PROPOSAL
+- It is a simple walkthrough of what you are going to provide, i.e what will be delivered to the client.
+- Use proposify and panda docs for samples
+- Namecheap free logo maker can be used to make a logo
+
+# Contracts
+- It is not for a fight but to protect both parties when things tend to go wrong.
+- Use stuff and nonsense - contract killer on github or Sam's California/US modification.
+
+# NEVER LEAVE OUT THE INDEMNIFICATION CLAUSES (Note to self: See the picture on your phone about important bits)
+
+# How To Close
+- Comes down to a question
+[Tell me everything about your project]
+
+- Youtube channel for building an agency. (The future, chris dell)
+- [What is your ballpark budget?]
+- BE FIRM, BE CLEAR, UNDER PROMISE, OVER DELIVER.
+- LEAVE ENOUGH ROOM TO GET HELP. DOUBLE THAT DELIVERY DATE.
+- COMMUNICATE REGULARLY
+- GET HELP WHEN NEEDED.
+
+
+
 
 
