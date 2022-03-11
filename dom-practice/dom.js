@@ -145,16 +145,12 @@
 // container.insertBefore(newDiv, h1);
 
 // ## Events & Event Listeners
-var button = document.getElementById('button');
+// var button = document.getElementById('button');
 
-button.addEventListener('click', buttonCLick);
+// button.addEventListener('click', buttonCLick);
 
-function buttonCLick() {
-    alert('My name is Opeyemi and I am learning to write code everyday')
-    document.getElementById('header-title').textContent = 'I love you Sandra';
-}
-
-
-
-
+// function buttonCLick() {
+//     alert('My name is Opeyemi and I am learning to write code everyday')
+//     document.getElementById('header-title').textContent = 'I love you Sandra';
+// }
 
