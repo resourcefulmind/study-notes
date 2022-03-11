@@ -145,3 +145,24 @@ newDiv.fontSize = '40px';
 container.insertBefore(newDiv, h1);
 
 ## Events & Event Listeners
+Event listeners are used to listen for when actions are taken on the computer like a click or a hover, etc. For example
+
+var button = document.getElementById('button');
+
+button.addEventListener('click', buttonCLick);
+
+function buttonCLick() {
+    alert('My name is Opeyemi and when I was younger I wanted to be an astronaut')
+}
+
+<!-- Can also be written like this -->
+var button = document.getElementById('button').addEventListener('click', buttonClick);
+
+- Multiple actions can also be performed
+
+- the event button (e) when fired will give all the events happening in that particular place it was fired from.
+
+
+
+
+

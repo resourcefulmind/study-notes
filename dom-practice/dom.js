@@ -151,5 +151,10 @@ button.addEventListener('click', buttonCLick);
 
 function buttonCLick() {
     alert('My name is Opeyemi and I am learning to write code everyday')
+    document.getElementById('header-title').textContent = 'I love you Sandra';
 }
+
+
+
+
 
