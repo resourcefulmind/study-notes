@@ -67,3 +67,30 @@ There is React and React DOM. These are the two separate libraries anyone buildi
 - The state system is all about managing data inside of your application, particularly data that changes over time.
 - In the code, the language and the text inputted can be changed over time as different entries will be made, the useState helps to manage the entries to store those data.
 - In general, the state system is used anytime **to make React update the HTML or content on the screen**
+
+# To Generate a new React app on local machine
+- Install/update your Node JS (Google is the best tool for learning how to do it.)
+- Install create-react-app
+The recommended method for generating a project is now:
+
+```
+npx create-react-app my-app
+```
+
+If you get any errors about missing templates or how a global Create React App install is no longer supported, try clearing your npx cache:
+```
+npx clear-npx-cache
+```
+If you still are met with errors referencing a globally installed Create React App you likely need to remove the global package from your system:
+```
+npm uninstall -g create-react-app
+```
+- Generate a project
+- Build Project
+# Why do we have so many packages installed just to run a simple react project?
+- The react project has a tonne of dependencies like
+    1. Webpack
+    2. Babel
+    3. Dev Server 
+**Babel** - A command line tool that makes the life of a developer easy by taking in any version of js and spitting out an ES5 version that can be understood and can be executed by most or all browsers.
+
