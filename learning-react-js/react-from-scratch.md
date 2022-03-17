@@ -118,7 +118,7 @@ npm uninstall -g create-react-app
 ```
 npm start
 ```
-For the current version of node, it might change on your terminal to **react-scriptd start** but let it do its thing.
+For the current version of node, it might change on your terminal to **react-script start** but let it do its thing.
 
 The above will initialize your application and a new tab will open in your browser with the url **localhost:3000** or on your network **http://192.168.0.193:3000** The latter can be used if the localhost doesn't work.
 
