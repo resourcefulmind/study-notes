@@ -149,6 +149,8 @@ There are three steps that would guide you through the process of getting things
 2. Create a React component.
 3. Take the react component and show it on the screen.
 
+### 1. Import the React and ReactDOM libraries.
+
 # Explain the import statements and why we are importing stuff from stuff.
 Any code that is written in a react project is not going to be automatically shared with the rest of the project or files.
 To get access to other files within the current file you are working from, **the import statement gets that done**
@@ -169,4 +171,102 @@ Syntax explanation would be:
 
 # what is the difference between an 'import' and a 'require'statement?
 - The import statement is used for ES2015 modules while the 'require' statement makes use of the CommonJS modules.
+
+### 2. Create a React component.
+
+# What is a react component.
+- Can either be a function or a class
+- purpose of a component that is a function or a class is to produce HTML to show the user using JSX.
+- Secondary purpose is to handle feedback from the user using Event Handlers.
+
+# How to create a functional react component?
+```
+const App = function() {
+    return <div>My name is Opeyemi</div>
+};
+```
+Can also be re-written using ES6 as so;
+```
+const App = () => {
+    return <div>My name is Opeyemi</div>
+};
+```
+
+### 3. Take the react component and show it on the screen.
+- This is done by rendering the reactDOM with the component as the first argument and the reference to the index.html where the function will be put in the div of the index file as the second argument.
+```
+ReactDOM.render(
+    <App />, document.querySelector('#root');
+)
+```
+
+## How do you spot errors in your react application?
+If something isn't right, system will likely show you errors in the following ways;
+
+1. Some errors will show a blank white screen and ONLY print to the browser console.
+2. Some other errors print to the screen, console, and terminal.
+3. Linter warnings will ONLY print to the terminal.
+
+
+## Understanding JSX
+- Babel usually is used to convert ES2015 modules to ES2005 so most browsers can be supported. But it also helps to process JSX.
+- No browser natively understands what JSX is, so JSX is converted to normal javascript before it is fed to the browser. 
+- A tool on babeljs.io is available for this conversion.
+- JSX is written just for simplicity sake and converted back to plain JS by Babel before being fed to the browser.
+- In summary, JSX is not HTML, tools will turn written JSX back into vanilla JS and JSX is similar to HTML.
+**Every time you return a JSX line of code, you have to make sure that the RETURN statement and the opening tag are on the same line else you will get an error**
+
+**Better still, if it is a multiline code that is being returned, open with a parentheses and make sure the beginning of the parentheses is on the same line as the return statement and the closing parentheses is below the closing tag of the code**
+
+## Are there differences between HTML and JSX? What are these differences?
+```
+const App = () => {
+    return (
+        <div>
+            <h3>This is a sample form</h3>
+            <label for='name' class='label'>Username:</label>
+            <input id='name' type='text'/>
+            <label for='password' class='label'>Password:</label>
+            <input id='password' type='text'/>
+            <button style="background-color: black; color: white;">Login</button>
+        </div>
+    )
+};
+```
+- The above code will throw an error because there are differences in HTML and JSX styling
+
+1. Instead of the quotes that will follow the **"equal to"** sign, two **curly brackets** are going to be used, one signifying a **javascript variable** and the other signifying that it is a **javascript object.**
+2. when compound styles like `background-color` exist in HTML and have to be styled in JSX, use camelCase. In other words, correct syntax will be `backgroundColor` and the value will be in single quotes. 
+3. Styles are separated with a comma and not semi-colons.
+4. With JSX, it is a convention to use double quotes for JSX properties and single quotes everywhere else. **Using it otherwise will not change anything but it is nice to follow convention**
+5. Instead of using **class** to style, in JSX **className** is used. This is to avoid confusions with the javascript class which is used often in JSX and React.
+6. JS variables are easily referenced with JSX but HTML doesn't have such power. 
+
+
+
+Re-writing the code with the appropriate style will give;
+```
+const buttonText = 'Order Now!';
+
+const App = () => {
+    return (
+        <div style={{ border: '1px solid red', padding: '0px 10px 30px 30px' }}>
+            <h3>This is a sample form</h3>
+            <label for="name" className="label">Username:</label>
+            <input id="name" type="text"/>
+            <label for="password" className="label">Password:</label>
+            <input id="password" type="text"/>
+            <button style={{ backgroundColor: 'black', color: 'white', marginLeft: '20px' }}>{buttonText}</button>
+        </div>
+    )
+};
+```
+PS: I added a few styles more because I love that I am actually able to write JSX with a full understanding. 
+
+# Seems like JSX can do everything, what can't it do then?
+**It is important to note that variable types like numbers, strings and even stuff like arrays can be referenced directly in JSX but OBJECTS cannot be referenced directly. The dot notation has to be used for such a reference** 
+
+
+
+
 
