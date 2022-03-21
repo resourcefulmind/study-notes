@@ -264,7 +264,34 @@ const App = () => {
 PS: I added a few styles more because I love that I am actually able to write JSX with a full understanding. 
 
 # Seems like JSX can do everything, what can't it do then?
-**It is important to note that variable types like numbers, strings and even stuff like arrays can be referenced directly in JSX but OBJECTS cannot be referenced directly. The dot notation has to be used for such a reference** 
+**It is important to note that variable types like numbers, strings and even stuff like arrays can be referenced directly in JSX but OBJECTS cannot be referenced directly. Objects can be used as long as it is not text. The dot notation has to be used for such a reference** 
+
+-  Other differences exist that will not stop the app from working but will show up on the console. Checking the console regularly is the best convention for this. **It is best practice to keep the console open to check for errors.**
+
+After JSX, what next? Communication with props
+
+# What are the three tenets of React Components
+
+- Component Nesting (making different components to make a real react app and showing a component inside of another component).
+- Component Reusability (reusing components throughout the application like buttons and menus and navbars and th likes).
+- Component Configuration (Giving the same components different configurations)
+
+**A build of a simple comment-section app can be found in the folder and will cement the knowledge for understanding the **three tenets of react components****
+
+# Additional Read: Semantic UI cdn
+- Semantic UI is a front-end development framework similar to bootstrap designed for theming. A css library actually. It contains pre-built semantic components that helps create beautiful and responsive layouts using human-friendly HTML.
+
+- And it integrates with React, Angular, Meteor, Ember and many other frameworks to help organize UI layer alongside application logic.
+
+- Install via CDN with
+```
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
+```
+Full documentation to learn all about semantic UI is here:
+https://semantic-ui.com/
+
+- To get started
+https://semantic-ui.com/introduction/getting-started.html
 
 
 
