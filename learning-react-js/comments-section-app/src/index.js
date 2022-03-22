@@ -1,14 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-//import faker
-import faker from 'faker';
+
 
 const App = () => {
     return (
         <div className="ui container comments">
             <div className="comment">
                 <a href="/" className='avatar'>
-                    <img src={faker.image.avatar()} alt="avatar" />
+                    <img alt="avatar" src={"https://via.placeholder.com/150"} />
                 </a>
                 <div className="content">
                     <a href="/" className='author'>Nader Dabit</a>
@@ -21,5 +20,6 @@ const App = () => {
         </div>
     )
 };
+
 
 ReactDOM.render(<App />, document.querySelector('#root'))
