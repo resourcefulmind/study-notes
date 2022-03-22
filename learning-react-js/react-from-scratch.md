@@ -294,6 +294,20 @@ https://semantic-ui.com/
 https://semantic-ui.com/introduction/getting-started.html
 
 
+# Additional Read: FakerJS library
+- A JavaScript library for generating fake data. Fake data is useful when building and testing our application.
+- **The library currently no longer exists and is not being maintained.** However, as of today, it still exists in the NPM registry and we are able to install and use it in our projects by specifying the last known good version:
+```
+npm install faker@5.5.3
+```
+**faker was used to generate the fake avatar for the comment section project**
 
+- To generate an avatar, you add it by calling {faker.image.avatar()}
+
+- To install additional dependencies you have to stop the dev server first, install your dependency, check package.json to see if it is there and then start up the server again.
+
+- One other thing is that for every refresh, there is a different image and the occasional broken image too
+
+- **Important Notice**: For some reason, faker JS refused to generate the data needed so 
 
 
