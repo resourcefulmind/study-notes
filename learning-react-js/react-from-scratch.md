@@ -308,6 +308,6 @@ npm install faker@5.5.3
 
 - One other thing is that for every refresh, there is a different image and the occasional broken image too
 
-- **Important Notice**: For some reason, faker JS refused to generate the data needed so 
+- **Important Notice**: For some reason, faker JS refused to generate the data needed. I do not know if this has to do with the whole developer fracas that was on the news. I tried **falso** but their documentation was not it for me so i settled for **https://via.placeholder.com** which is very easy to use.
 
 
