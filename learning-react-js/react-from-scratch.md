@@ -311,3 +311,43 @@ npm install faker@5.5.3
 - **Important Notice**: For some reason, faker JS refused to generate the data needed. I do not know if this has to do with the whole developer fracas that was on the news. I tried **falso** but their documentation was not it for me so i settled for **https://via.placeholder.com** which is very easy to use.
 
 
+## Why do we need reusable components?
+Reusable components are a necessity so as not to have to deal with the complexities of very long and cumbersome JSX as well as to write clean and tidy code. It is simply the isolation of duplicated JSX in one place so they can be reused.
+
+## How to Create Reusable and Configurable Component and extract JSX to the new component?
+
+1. Identify the JSX that already appears in the project and is duplicated.
+
+2. What is the purpose of that block of JSX. What does it do? Then provide a descriptive name for what it does. e.g the description of the component being worked on is to provide or display details about a single comment.
+
+3. Then create a new file to house the new component and it should have the same name.
+**The naming of react components are always started with uppercase letters**
+
+4. Copy and paste the duplicated JSX to your new component.
+
+5. use React's props system to make sure that the new component is configurable. 
+
+## What exactly are props or the React props system?
+- Props allows us to configure how a component behaves or the content it shows. In the comments section project and the CommentDetail component, the author of the comment, the date and the text are hard coded. They will probably be dynamic and change with time and users so props can help with that.
+
+## How do we get a reusable component like CommentDetail.js to show up inside another file like index.js in the project...
+- Export the CommentDetail.js file
+```
+export default CommentDetail
+```
+- import it to the index.js
+```
+import CommentDetail from './comments-section-app/src/CommentDetail'
+```
+[**no .js involved because webpack will look for that for you automatically**]
+
+- Export makes the file available to other parts of the project, import makes it actually usable.
+
+- After linking the files, component nesting is then used to show it
+
+**To actually show the new component, do not use curly braces to display the CommentDetail like it was a variable, use a JSX tag...it is the one exception to that rule so if you want to show one component inside another, you will treat it like it is a JSX tag**
+
+```
+<CommentDetail /> as against {CommentDetail}
+```
+
