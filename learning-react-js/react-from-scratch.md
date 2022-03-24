@@ -351,3 +351,50 @@ import CommentDetail from './comments-section-app/src/CommentDetail'
 <CommentDetail /> as against {CommentDetail}
 ```
 
+## What are props?
+
+*Means properties*
+
+The app component is the parent component while the CommentDetail are children components to it because it is showing them on the screen
+
+**Props system is a system for passing data from a parent component to a child/nested component. The ultimate goal is to customize what a child components or different child components will show**
+
+- A prop will either customize how the component looks or how the user interacts with it.
+- There is no limit to the amount of props that can be passed to a particular component but there are standard react practices though. For example, in the project, different props can be used to pass different names to the "authors"
+
+- A child cannot pass information back to the parents, at least not directly.
+
+- In props, it's a 2 stage process:
+1. On one hand we provide information
+2. On the other hand we consume the information
+
+- The syntax is very similar to using the attributes in normal JSX and HTML. 
+
+*Providing information:*
+```
+<CommentDetail author= "Nader Dabit" />
+```
+where author = the name of the prop
+"Sam" could have also been referenced as a JS variable.
+
+- Props are unique and even though they might have the same attribute, they will not have the same values whe set differently.
+
+*Consuming the information*
+- Pass props as a parameter inside the Component/reusable function
+- reference `props.key` to access what is to be updated in the hard coded place in JSX.
+
+## Creating upvote, downvote and approval cards and using them as reusable components
+
+- Two ways to go about it. Write more JSX or use props by creating an approval card component and passing the CommentDetail as a prop so other stuff can also be shown using the approval card as well.
+
+- Use semantic UI > views > cards to make the Approval card component and import it to the index.js file
+
+-  To get the approval card to show the comment detail without hard coding, 
+1. Insert the `CommentDetail` into the Approval Card as a children property of the Approval Card in the `index.js` file. 
+2. Pass props to the `ApprovalCard.js` component
+3. Reference the `CommentDetail.js` component in the div where you want it to show in the `ApprovalCard.js` file using `props.children`.
+
+**When we want to make truly reusable component or show some component or custom content inside of a component, wrap it with a parent component and it is always going to show up in the `props.children` property. Then you can take that property and reference it anywhere inside of our JSX.**
+
+**You can pass in plain text or multiple elements using the method above but the key thing is to pass props.children in the component otherwise it will not work**
+
