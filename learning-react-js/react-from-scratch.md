@@ -398,3 +398,40 @@ where author = the name of the prop
 
 **You can pass in plain text or multiple elements using the method above but the key thing is to pass props.children in the component otherwise it will not work**
 
+
+
+## What are the differences between Functional Components and Class Components.
+
+Functional components can:
+- produce JSX to show content to the user
+- use Hooks to run code at specific points in time
+- Use Hooks to update content on the screen to the user.
+
+
+
+WHILE 
+
+Class components can:
+- produce JSX to show content to the user
+- use the lifecycle method system to run code at specific points in time
+- use the 'state' system to update content on the screen to the user.
+
+
+## PS, a developer has to know both.
+Easy to learn Class components -> Learn Hooks --> Learn redux
+
+# Advantages of using Class components
+- Easier code organization.
+- Get access to the 'state' system
+- Easier to handle user input
+- Understands lifecycle events
+- Easier to do things when your app first loads up
+
+# To learn how to use state and class based components, take a look at the second app I will be building in the coding section.
+
+- This app will be called the Seasons app and will show the weather at the location of a person.
+
+To implement this, a few things need to be done;
+1. Location of user must be determined
+2. The current month.
+3. Styling and wordings need to change based on whatever is selected
