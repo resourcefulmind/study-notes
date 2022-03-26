@@ -427,11 +427,13 @@ Easy to learn Class components -> Learn Hooks --> Learn redux
 - Understands lifecycle events
 - Easier to do things when your app first loads up
 
-# To learn how to use state and class based components, take a look at the second app I will be building in the coding section.
+## To learn how to use state and class based components, take a look at the second app I will be building in the coding section called Seasons App
 
-- This app will be called the Seasons app and will show the weather at the location of a person.
+- This app will be called the **Seasons app** and will show the weather at the location of a person.
 
 To implement this, a few things need to be done;
 1. Location of user must be determined
 2. The current month.
 3. Styling and wordings need to change based on whatever is selected
+
+- 
