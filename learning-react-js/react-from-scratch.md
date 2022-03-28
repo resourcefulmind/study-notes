@@ -436,4 +436,51 @@ To implement this, a few things need to be done;
 2. The current month.
 3. Styling and wordings need to change based on whatever is selected
 
-- 
+- Two main components will be required for this;
+1. The App Component which will have the code to determine location + month and will pass it as a prop to the SeasonDisplay.
+2. The SeasonDisplay which will show different text/icons based on the props.
+
+- To determine the physical location of the user, the geolocation API can be used. The following notes have been taken from the mozilla mdn docs because I have never previously worked with the geolocation API.
+
+## Geoloacation API
+- It allows the user to provide their location to web applications if they so desire. For privacy reasons, the user is asked for permission to report location information.
+- The Geolocation API is accessed via a call to `navigator.geolocation`; this will cause the user's browser to ask them for permission to access their location data. If they accept, then the browser will use the best available functionality on the device to access this information (for example, GPS).
+
+- Information can then be accessed in a couple of ways and taking up to three arguments (the compulsory  success callback, an optional error callback and optional object which provides options for retrieval of the position data. The two ways are;
+
+1. `Geolocation.getCurrentPosition()`: Retrieves the device's current location.
+2. `Geolocation.watchPosition()`: Registers a handler function that will be called automatically each time the position of the device changes, returning the updated location
+
+More info here 
+[Link](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API)
+
+**From the position object, the latitude is gotten and will give the ability to decide which hemisphere the user is**
+
+- To reset the geolocation process and make it always request permission...change the setting on the local host.
+
+- When the geolocation API is called, rendering happens before a result is even gotten. The component is already rendered and the details are shown while the API call is still "processing".
+
+This is where **Class Based Components** come in. It is the first step towards solving the problem.
+
+- Class Based components will help with telling the app to re-render itself when it has gotten the results from calling the geolocation API.
+
+- So new app flow will be
+1. JS file is loaded by browser
+2. App component gets created
+3. Geolocation service API is called
+4. App returns JSX, gets rendered to the page as HTML
+
+5. We get result of geolocation.
+6. Tell the component to rerender itself with this new information.
+
+**So we use a class based component instead of a functional component so that we can use React's state system**
+
+- To use Class based components, the following rules have to be observed;
+1. Create a javascript class (mandatory)
+2. Must extend React.component
+3. Must define a 'render' method that will return some JSX.
+
+- Reason for using extends React.Component is that it allows for pulling other methods into the class based component.
+
+# Using the state system in React.
+- This is the second part of the solution
