@@ -475,7 +475,7 @@ This is where **Class Based Components** come in. It is the first step towards s
 
 **So we use a class based component instead of a functional component so that we can use React's state system**
 
-- To use Class based components, the following rules have to be observed;
+## To use Class based components, the following rules have to be observed;
 1. Create a javascript class (mandatory)
 2. Must extend React.component
 3. Must define a 'render' method that will return some JSX.
@@ -483,4 +483,161 @@ This is where **Class Based Components** come in. It is the first step towards s
 - Reason for using extends React.Component is that it allows for pulling other methods into the class based component.
 
 # Using the state system in React.
-- This is the second part of the solution
+- This is the second part of the solution that will solve the seeming delay in getting our geolocation value back and rerendering the app to update itself.
+
+## THE RULES OF THE STATE SYSTEM IN REACT
+1. It is only usable with class components (this is not 100% true in recent times as state can technically be used with functional components via the "hooks" system)
+
+2. IT IS NORMAL TO CONFUSE PROPS WITH STATE. Most fresh react devs do this.
+
+3. 'State' is a javascript object that contains data relevant to a component. In our app component, the piece of state that we need is the latitude.
+
+4. *Updating 'state' on a component causes the component to almost instantly rerender.* If you want to get a single component to update itself, you must update its state.
+
+5. State must be initialized when a component is created.
+
+6. **State can only be updated using the function 'setState'** Most important rule of all as everyone makes an error when doing this early on.
+
+# How then do we initialize state? By using constructors.
+- Constructors are not required by react as the render method is. It is not specific to react.
+
+- It is the first function that is going to be called anytime an instance of the App component is created and shown on the screen. It makes it a very suitable place to initialize state. 
+
+*It is not the only way to initialize state*
+
+- COnstructors are automatically called with the props object when defined.
+
+- super(props) is mandated to be called with the proops passed in. This is necessary to make sure that the React.Component constructor function gets called. It is a reference to the parent constructor function.
+
+ *To initialize the state*
+`this.state = { lat: null }`  
+The above will contain the relevant pieces of data
+
+-  To update the state property, use the setState method and then just reference it using javascript.
+
+**Do nt use direct assignments to set your states. The only exception is when we initialize the state in the constructor function**
+
+
+## The entire flow of the Seasons project from the beginning up to this point where the latitude shows up on the screen has been:
+
+1. JS file loaded by browser
+2. Instance of App component is created
+3. App components 'constructor' function gets called
+4. State object is created and assigned to the 'this.state' property
+5. Geolocation service is called
+6. React calls the component render method
+7. App returns JSX, gets rendered to page as HTML
+
+8. Geolocation result comes in
+9. state object is updated with a call to 'this.setState'
+10. React sees that the state of the component has been updated
+11. React calls the render method a second time
+12. Render method returns some (updated) JSX
+
+## How to handle the second callback from the position function, the error callback.
+
+- This is done by adding a new state, like an error message and updating the state.
+
+*There's only one problem, app should always be user-centric and with the error just showing like that, the user begins to think there is actually an error so it is best to only show it when it is needed...i.e conditionally..this means certain thing should show at certain times(such as when the callback returns a success,when the latitude isn't entered and it has to return an error message and when both are entered and it is loading)* 
+If statements would do the trick here....check the code for more.
+
+The method above is called conditional rendering and used for returning different types of JSX depending on whether the conditions are met or not. It is quite simple and straightforward but there are other nicer ways.
+
+**setState is a very good way of initializing state but there is an alternative way. To understand that, component lifecycle methods need to be understood first.**
+
+# What is/are component lifecycle methods?
+- It is a function that can be optionally defined inside of class based components.
+- If the methods are implemented, they will be called automatically by React, at different points during a component's life cycle.
+- Lifecycle here simply means the period from which the component is created, rendered on the screen, updated, all through when it is removed.
+
+
+The lifecycle of components are typically as follows:
+
+1. Constructor
+2 Render (is called and JSX is returned and shown on the screen)
+3. `componentDidMount` is called immediately after the content shows up on the screen. It has to be invoked verbatim. After it is called, the component will sit and wait for an update via setState and the app is rerendered and updated with the new stuff.
+4. Each time the app rerenders, another method called `componentDidUpdate` will be called automatically. After this, the component will sit and wait again until another update is coming up and it will do the same thing for "n" number of times.
+5. If we decide to no longer show te component, then `componentWillUnmount` will be called. 
+
+**anytime didUpdate is called, render will be called before it**
+
+## What is the need to use lifecycle methods? Use cases?
+
+1. *Constructor* is a good spot to do your initial setup like setState. Pretty good for one time set up too according to react docs but very unconventional to do data loading as code won't be clean.
+
+2. *render* shouldn't do anything besides returning JSX
+
+3. `componentDidMount` is the best place to do initial data loading eg making network/API requests or geolocation or kicking off a one-time process like getting a user's physical location. In light of this, the geolocation code to get the physical location of the user will be shifted to `componentDidMount`.
+
+4. `componentDidUpdate` gets called every single time a component is updated(could be state/props change). Data loading for every single time a component is updated should be done here. eg making network requests every time a user clicks on a button or when a user enters text into an input or new props.
+
+5. `componentWillUnmount` is a good place to do clean up, especially non-react stuff eg using google maps ina  react application. It doesn't get used often.
+
+# Other component life cycle methods are:
+1. shouldComponentUpdate
+2. getDerivedStateFromProps
+3. getSnapshotBeforeUpdate
+
+They are rarely used.
+
+- Moving the geolocation to the `componentDidMount` makes it possible to use the alternate method of state initialization which does not involve using a constructor. state initialization will look like;
+
+`state = { lat: null, errorMessage: '' }`
+
+It will render without the constructor because Babel will do the constructor implementation on its own and the code will work just fine.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**IMPORTANT NOTICE**
+
+Important Note About super(props) Deprecation
+In the upcoming lecture, we will be adding a constructor to our component and passing super(props) like so:
+
+  constructor(props) {
+    super(props);
+  }
+Some students have noticed that their code editors have added a strikethrough to the super and a note that it has been deprecated.
+
+The use of super(props) has not been deprecated, per the official React docs:
+
+https://reactjs.org/docs/react-component.html#constructor
+
+This not an actual error or issue, and you do not need to refactor your code to fix anything. This is a bug between TypeScript, React, and the code editor.
+
+----------------------------------------------------------
+
+You can read about the issue and the ongoing development to resolve the bug in the following TypeScript threads:
+
+Resolve microsoft/TypeScript#40511
+
+PROBLEM:
+
+The final overload here marks the second argument ("context") as optional. This optional Legacy Context argument is deprecated, so the overload is correctly marked as deprecated. However, because the deprecated argument is itself optional, even perfectly acceptable super(props) calls in plain JS are flagged as deprecated.
+
+SOLUTION:
+
+Modify the first overload so that it accepts props simply of P. The "context" argument of the second overload should no longer be marked as optional. After testing in VS Code, this resolves the incorrect behavior, while preserving the deprecation warning from JSDocs when providing a second parameter.
+
+https://github.com/DefinitelyTyped/DefinitelyTyped/pull/47784
+
+https://github.com/microsoft/TypeScript/issues/39509
