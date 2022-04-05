@@ -54,7 +54,7 @@ There is React and React DOM. These are the two separate libraries anyone buildi
 - The **React** library is called a **reconciler** because it has a bunch of code inside it that
 1. knows how to get a bunch of different components to work together
 2. knows how to call a component function
-3. knows how to et back that jsx
+3. knows how to get back that jsx
 4. knows how to essentially iterate over those elements and know whether to create an html element or call some other component function.
 
 - The **ReactDOM** library is called a **renderer** because it knows how to take a set of instructions that is needed to create html and ACTUALLY CREATE HTML OUT OF IT. 
@@ -100,7 +100,7 @@ npm uninstall -g create-react-app
 
 - **public**: contains static files eg html files, images, audio files, et al
 
-- **node_modules**: this contains all of the project dependencies aka those 1789 or so things that were installed when you 
+- **node_modules**: this contains all of the project dependencies aka those 1789 or so things that were installed when you did the create-react-app
 
 - **package.json**: lists out all the project dependencies that the project will have and also their configuration. Updates can be made to this as progress is made during the project.
 
@@ -214,7 +214,7 @@ If something isn't right, system will likely show you errors in the following wa
 - A tool on babeljs.io is available for this conversion.
 - JSX is written just for simplicity sake and converted back to plain JS by Babel before being fed to the browser.
 - In summary, JSX is not HTML, tools will turn written JSX back into vanilla JS and JSX is similar to HTML.
-**Every time you return a JSX line of code, you have to make sure that the RETURN statement and the opening tag are on the same line else you will get an error**
+**Every time you return a single JSX line of code, you have to make sure that the RETURN statement and the opening tag are on the same line else you will get an error**
 
 **Better still, if it is a multiline code that is being returned, open with a parentheses and make sure the beginning of the parentheses is on the same line as the return statement and the closing parentheses is below the closing tag of the code**
 
@@ -268,18 +268,18 @@ PS: I added a few styles more because I love that I am actually able to write JS
 
 -  Other differences exist that will not stop the app from working but will show up on the console. Checking the console regularly is the best convention for this. **It is best practice to keep the console open to check for errors.**
 
-After JSX, what next? Communication with props
+After JSX, what next? **Communication with props**
 
 # What are the three tenets of React Components
 
 - Component Nesting (making different components to make a real react app and showing a component inside of another component).
-- Component Reusability (reusing components throughout the application like buttons and menus and navbars and th likes).
+- Component Reusability (reusing components throughout the application like buttons and menus and navigation bars/menus and the likes).
 - Component Configuration (Giving the same components different configurations)
 
 **A build of a simple comment-section app can be found in the folder and will cement the knowledge for understanding the **three tenets of react components****
 
-# Additional Read: Semantic UI cdn
-- Semantic UI is a front-end development framework similar to bootstrap designed for theming. A css library actually. It contains pre-built semantic components that helps create beautiful and responsive layouts using human-friendly HTML.
+# Additional Read: Semantic UI CDN
+- Semantic UI is a front-end development framework similar to bootstrap designed for theming. A CSS library actually. It contains pre-built semantic components that helps create beautiful and responsive layouts using human-friendly HTML.
 
 - And it integrates with React, Angular, Meteor, Ember and many other frameworks to help organize UI layer alongside application logic.
 
@@ -375,9 +375,9 @@ The app component is the parent component while the CommentDetail are children c
 <CommentDetail author= "Nader Dabit" />
 ```
 where author = the name of the prop
-"Sam" could have also been referenced as a JS variable.
+"Nader Dabit" could have also been referenced as a JS variable.
 
-- Props are unique and even though they might have the same attribute, they will not have the same values whe set differently.
+- Props are unique and even though they might have the same attribute, they will not have the same values when set differently.
 
 *Consuming the information*
 - Pass props as a parameter inside the Component/reusable function
@@ -406,8 +406,6 @@ Functional components can:
 - produce JSX to show content to the user
 - use Hooks to run code at specific points in time
 - Use Hooks to update content on the screen to the user.
-
-
 
 WHILE 
 
@@ -442,11 +440,11 @@ To implement this, a few things need to be done;
 
 - To determine the physical location of the user, the geolocation API can be used. The following notes have been taken from the mozilla mdn docs because I have never previously worked with the geolocation API.
 
-## Geoloacation API
+## Geo-location API
 - It allows the user to provide their location to web applications if they so desire. For privacy reasons, the user is asked for permission to report location information.
-- The Geolocation API is accessed via a call to `navigator.geolocation`; this will cause the user's browser to ask them for permission to access their location data. If they accept, then the browser will use the best available functionality on the device to access this information (for example, GPS).
+- The Geo-location API is accessed via a call to `navigator.geolocation`; this will cause the user's browser to ask them for permission to access their location data. If they accept, then the browser will use the best available functionality on the device to access this information (for example, GPS).
 
-- Information can then be accessed in a couple of ways and taking up to three arguments (the compulsory  success callback, an optional error callback and optional object which provides options for retrieval of the position data. The two ways are;
+- Information can then be accessed in a couple of ways and taking up to three arguments (the compulsory success callback, an optional error callback and optional object which provides options for retrieval of the position data. The two ways are;
 
 1. `Geolocation.getCurrentPosition()`: Retrieves the device's current location.
 2. `Geolocation.watchPosition()`: Registers a handler function that will be called automatically each time the position of the device changes, returning the updated location
@@ -456,18 +454,18 @@ More info here
 
 **From the position object, the latitude is gotten and will give the ability to decide which hemisphere the user is**
 
-- To reset the geolocation process and make it always request permission...change the setting on the local host.
+- To reset the geo-location process and make it always request permission...change the setting on the local host.
 
-- When the geolocation API is called, rendering happens before a result is even gotten. The component is already rendered and the details are shown while the API call is still "processing".
+- When the geo-location API is called, rendering happens before a result is even gotten. The component is already rendered and the details are shown while the API call is still "processing".
 
 This is where **Class Based Components** come in. It is the first step towards solving the problem.
 
-- Class Based components will help with telling the app to re-render itself when it has gotten the results from calling the geolocation API.
+- Class Based components will help with telling the app to re-render itself when it has gotten the results from calling the geo-location API.
 
 - So new app flow will be
 1. JS file is loaded by browser
 2. App component gets created
-3. Geolocation service API is called
+3. Geo-location service API is called
 4. App returns JSX, gets rendered to the page as HTML
 
 5. We get result of geolocation.
@@ -483,7 +481,7 @@ This is where **Class Based Components** come in. It is the first step towards s
 - Reason for using extends React.Component is that it allows for pulling other methods into the class based component.
 
 # Using the state system in React.
-- This is the second part of the solution that will solve the seeming delay in getting our geolocation value back and rerendering the app to update itself.
+- This is the second part of the solution that will solve the seeming delay in getting our geo-location value back and re-rendering the app to update itself.
 
 ## THE RULES OF THE STATE SYSTEM IN REACT
 1. It is only usable with class components (this is not 100% true in recent times as state can technically be used with functional components via the "hooks" system)
@@ -505,9 +503,9 @@ This is where **Class Based Components** come in. It is the first step towards s
 
 *It is not the only way to initialize state*
 
-- COnstructors are automatically called with the props object when defined.
+- Constructors are automatically called with the props object when defined.
 
-- super(props) is mandated to be called with the proops passed in. This is necessary to make sure that the React.Component constructor function gets called. It is a reference to the parent constructor function.
+- super(props) is mandated to be called with the props passed in. This is necessary to make sure that the React.Component constructor function gets called. It is a reference to the parent constructor function.
 
  *To initialize the state*
 `this.state = { lat: null }`  
@@ -586,58 +584,45 @@ They are rarely used.
 
 It will render without the constructor because Babel will do the constructor implementation on its own and the code will work just fine.
 
+- To show the current season, you have to import the `SeasonDisplay` into your `index.js` file and then show it instead of the latitude.
+
+## Passing State As Props
+
+- The `SeasonDisplay` component will have props passed through it to display what we want it to display
+
+- props are used to get the value of the latitude from the state to the `SeasonDisplay` component. This is where the two systems of props and state gets a little confusing.  
+
+- To clear things up...**We can take state from one component and pass it down as a prop to the child of that component which in this case the parent is "App" and the child is the "SeasonDisplay"**
+
+- Anytime `setState` is called in the "App" component, the app updates itself and causes the `SeasonDisplay` to be updated as well as re-rendered. 
+
+Summarily, anytime `setState` is called, the component re-renders itself but also re-renders the children in it.
+
+## To Determine The Season now, first figure out the current month of the year and then use the latitude to determine what season it is.
+
+- To get the current month of the year, use 
+`new Date().getMonth()`
+- Keep in mind that the result of the above is indexed so if the console prints "5" as the result, then it is April and so on. See code for more.
+- From geography lessons, There are two hemispheres which are the Nothern and Southern hemispheres but there's different climates.
+
+- In Europe and the americas, which is the nothern hemisphere, there are four seasons
+
+1. Summer (June – August) [This means indexes 5 to 7 ]
+2. Autumn (September – November) [This means indexes 8 to 10 ]
+3. Winter (December – February) [This means indexes 11 to 1 ]
+4. Spring (March – May) [This means indexes 2 to 4 ]
+
+
+- And in Africa, which is the southern hemisphere, there are:
+
+1. Dry Season (Jan - March) [This means indexes 0 to 2 ]
+2. Rainy Season (Apr - Sept) [This means indexes 3 to 8 ]~
+3. Dry Season + Harmattan (Oct - Dec) [This means indexes 9 to 11 ]
+
+- End goal has always been to get the app to tell whether the season. A function with Conditionals/te should be able to do the rest. See code for more.
 
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-**IMPORTANT NOTICE**
-
-Important Note About super(props) Deprecation
-In the upcoming lecture, we will be adding a constructor to our component and passing super(props) like so:
-
-  constructor(props) {
-    super(props);
-  }
-Some students have noticed that their code editors have added a strikethrough to the super and a note that it has been deprecated.
-
-The use of super(props) has not been deprecated, per the official React docs:
-
-https://reactjs.org/docs/react-component.html#constructor
-
-This not an actual error or issue, and you do not need to refactor your code to fix anything. This is a bug between TypeScript, React, and the code editor.
-
-----------------------------------------------------------
-
-You can read about the issue and the ongoing development to resolve the bug in the following TypeScript threads:
-
-Resolve microsoft/TypeScript#40511
-
-PROBLEM:
-
-The final overload here marks the second argument ("context") as optional. This optional Legacy Context argument is deprecated, so the overload is correctly marked as deprecated. However, because the deprecated argument is itself optional, even perfectly acceptable super(props) calls in plain JS are flagged as deprecated.
-
-SOLUTION:
-
-Modify the first overload so that it accepts props simply of P. The "context" argument of the second overload should no longer be marked as optional. After testing in VS Code, this resolves the incorrect behavior, while preserving the deprecation warning from JSDocs when providing a second parameter.
-
-https://github.com/DefinitelyTyped/DefinitelyTyped/pull/47784
-
-https://github.com/microsoft/TypeScript/issues/39509
