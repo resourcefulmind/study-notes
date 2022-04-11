@@ -622,7 +622,26 @@ Summarily, anytime `setState` is called, the component re-renders itself but als
 - End goal has always been to get the app to tell whether the season. A function with Conditionals/te should be able to do the rest. See code for more.
 
 
+- To add styling to the `SeasonDisplay` component and add weather icons to the screen, use semantic-ui icon cdn and the icon code should look like this
+
+```
+<i class="(icon action) (icon name) icon"></i>
+```
+The above is what was used in the course upon which I am building this knowledge. As seen in the code, I used FontAwesome instead and to set that all up, use the following instructions in these doc links
+
+[Setting it up](https://fontawesome.com/docs/web/use-with/react/)
+
+[To add icons](https://fontawesome.com/docs/web/use-with/react/add-icons) 
+
+- style project by opening up css file in src folder
+- name of css stylesheet should be the same as component to be styled.
 
 
+- Default props can be specified as a fallback in case a prop is omitted by error or forgetfulness. This can be done in the component itself like so;
 
-
+```
+Loader.defaultProps = {
+    message: 'Loading...'
+}
+```
+- Helper functions help greatly to avoid conditional statements when rendering and when a constant rule, say a border has to be shown regardless of whatever conditional statement is triggered.
