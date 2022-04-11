@@ -31,7 +31,7 @@
 }
 
 .season-display.spring i {
-    color: #77ac1f;
+    color: black;
 }
 
 
@@ -47,7 +47,7 @@
     background-color: #77ac1f;
 }
 
-.Summer {
+.summer {
     background-color: #ef5027;
 }
 
@@ -55,11 +55,11 @@
     background-color: #427ac1;
 }
 
-.Autumn {
+.autumn {
     background-color: #b6c7b7;
 }
 
-.Winter {
+.winter {
     background-color: aliceblue;
 }
 

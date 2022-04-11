@@ -7,13 +7,13 @@ import { faCloudSun, faCloudSunRain, faLeaf, faSnowflake, faSpaceShuttle, faSun,
 
 const getSeason = (lat, month) => {
     if (month > 2 && month < 5) {
-        return lat > 0 ? 'Spring' : 'Rainy-Season';
+        return lat > 0 ? 'spring' : 'rainySeason';
     } else if (month > 4 && month < 8) {
-        return lat > 0 ? 'Summer' : 'Rainy Season';
+        return lat > 0 ? 'summer' : 'rainySeason';
     } else if (month > 7 && month < 11) {
-        return lat > 0 ? 'Autumn' : 'Rainy to Harmattan';
+        return lat > 0 ? 'autumn' : 'rainyToHarmattan';
     }else if (month > 10 && month < 2) {
-        return lat > 0 ? 'Winter' : 'Dry Season + Harmattan';
+        return lat > 0 ? 'winter' : 'drySeasonHarmattan';
     } else {
         return 'Maybe you are on Mars'
     }
