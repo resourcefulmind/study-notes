@@ -655,7 +655,11 @@ Loader.defaultProps = {
 - After getting that search item, app needs to use search item to make request to an outside API and fetch data.
 - App needs to take fetched data and show them on the screen in a list and in tiles.
 
-**As at the time of building this app, React v18 was just released but for some reason, I could not create a new react app without it displaying the following error**
+- There will be two components apart from the app component, 
+1. the searchbar component that will handle the search input that the user will type in.
+2. the results components that will display the results on the screen
+
+**As at the time of starting to build this app, React v18 was just released but for some reason, I could not create a new react app without it displaying the following error**
 
 ```
 Installing template dependencies using npm...
@@ -690,3 +694,4 @@ npm ERR!     C:\Users\Engr. Omodara\AppData\Local\npm-cache\_logs\2022-04-12T12_
 3. run `"npm i web-vitals --save-dev"`
 4. run `npm start`
 
+- 
