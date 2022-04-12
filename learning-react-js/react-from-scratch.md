@@ -645,3 +645,48 @@ Loader.defaultProps = {
 }
 ```
 - Helper functions help greatly to avoid conditional statements when rendering and when a constant rule, say a border has to be shown regardless of whatever conditional statement is triggered.
+
+### Dealing with User Events, Fetching data and handling lists.
+
+- To properly hone this skill, build a soccer app that either displays the biography of a player when you search for them or displays their profile or something like that.
+
+# Thought Process
+- User has to search for a term and app needs to get that search term from the user.
+- After getting that search item, app needs to use search item to make request to an outside API and fetch data.
+- App needs to take fetched data and show them on the screen in a list and in tiles.
+
+**As at the time of building this app, React v18 was just released but for some reason, I could not create a new react app without it displaying the following error**
+
+```
+Installing template dependencies using npm...
+npm ERR! code ERESOLVE
+npm ERR! ERESOLVE unable to resolve dependency tree
+npm ERR!
+npm ERR! While resolving: soccer-profile@0.1.0
+npm ERR! Found: react@18.0.0
+npm ERR! node_modules/react
+npm ERR!   react@"^18.0.0" from the root project
+npm ERR!
+npm ERR! Could not resolve dependency:
+npm ERR! peer react@"<18.0.0" from @testing-library/react@12.1.5
+npm ERR! node_modules/@testing-library/react
+npm ERR!   @testing-library/react@"^12.0.0" from the root project        
+npm ERR! 
+npm ERR! Fix the upstream dependency conflict, or retry
+npm ERR! this command with --force, or --legacy-peer-deps
+npm ERR! to accept an incorrect (and potentially broken) dependency resolution.
+npm ERR!
+npm ERR! See C:\Users\Engr. Omodara\AppData\Local\npm-cache\eresolve-report.txt for a full report.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     C:\Users\Engr. Omodara\AppData\Local\npm-cache\_logs\2022-04-12T12_27_16_236Z-debug-0.log4-12T12_27_16_236Z-debug-0.log                                          g-library/react@^12.0.0 @testing-library/user-event@^13.2.1 web-vitals@^2.1.0` failed
+`npm install --no-audit --save @testing-library/jest-dom@^5.14.1 @testing-library/react@^12.0.0 @testing-library/user-event@^13.2.1 web-vitals@^eact-js (master)2.1.0` failed
+```
+
+**If this is still happening, here is a fix I got from Stack overflow**
+
+1. delete the "node_modules" folder and "package-lock.json"
+2. open "package.json" and change "react": "^18.0.0" & "react-dom": "^18.0.0" to an earlier version e.g. "react": "^17.0.2" & "react-dom": "^17.0.2"
+3. run `"npm i web-vitals --save-dev"`
+4. run `npm start`
+
