@@ -34,3 +34,50 @@ function DNAStrand(dna){
     //then return the concatenated version all the elements in arr with the join() method
     return arr.join('');
   }
+
+// Kata for 19th April, 2022
+// Complete the solution so that it returns true if the first argument(string) passed in ends with the 2nd argument (also a string).
+// To solve this, the .endswith() method comes into play
+
+
+// first task
+function solution(str, ending){
+    // TODO: complete
+    if (str.endsWith(ending)) {
+      return true
+    } else {
+      return false
+    }
+  }
+
+solution("Bastian", "n");
+solution("Congratulation", "on");
+solution("Walking on water and developing software from a specification are easy if both are frozen", "specification");
+
+//second task
+// Jaden Smith, the son of Will Smith, is the star of films such as The Karate Kid (2010) and After Earth (2013). Jaden is also known for some of his philosophy that he delivers via Twitter. When writing on Twitter, he is known for almost always capitalizing every word. For simplicity, you'll have to capitalize each word, check out how contractions are expected to be in the example below.
+
+// Your task is to convert strings to how they would be written by Jaden Smith. The strings are actual quotes from Jaden Smith, but they are not capitalized in the same way he originally typed them.
+
+// Not Jaden-Cased: "How can mirrors be real if our eyes aren't real"
+// Jaden-Cased:     "How Can Mirrors Be Real If Our Eyes Aren't Real"
+
+// A solution to this would be to first break up the input words into small substrings
+String.prototype.toJadenCase = function () {
+    var words = input.split(' '); 
+//Then declare a variable with an empty array value to accommodate the words that will be capitalized
+    var CapitalizedWords = []; 
+//Make a for loop to iterate through the words and push a concatenation of the first letter of the word converted to uppercase and a slice of the rest of the words
+words.forEach(element => {  
+    CapitalizedWords.push(element[0].toUpperCase() + element.slice(1, element.length));  
+}); 
+//Then join the words back together
+return CapitalizedWords.join(' ');  
+};
+
+// OR YOU CAN DO THE BELOW
+String.prototype.toJadenCase = function () { 
+    return this.split(" ").map(function(word){
+      return word.charAt(0).toUpperCase() + word.slice(1);
+    }).join(" ");
+  }
