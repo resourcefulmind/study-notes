@@ -694,4 +694,11 @@ npm ERR!     C:\Users\Engr. Omodara\AppData\Local\npm-cache\_logs\2022-04-12T12_
 3. run `"npm i web-vitals --save-dev"`
 4. run `npm start`
 
-- 
+
+# Project Structuring
+- Rather than inserting the other components directly into the src folder, it is good convention to make another subfolder containing the other components and leave the index.js file as a standalone in the src folder.
+
+- This way, the components created can be imported back into `index.js` and then rendered on the screen.
+
+- To search for player profiles, there obviously needs to be a Search Bar right and that will be the first component.
+- A class component is used in the `SearchBar.js` because at some point, there will be a change of state
