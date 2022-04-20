@@ -81,3 +81,36 @@ String.prototype.toJadenCase = function () {
       return word.charAt(0).toUpperCase() + word.slice(1);
     }).join(" ");
   }
+
+// Kata for 20th April, 2022
+// Implement a function that adds two numbers together and returns their sum in binary. The conversion can be done before, or after the addition.
+// The binary number returned should be a string.
+
+//Approach would be to first declare the function
+function addBinary(a,b) { 
+//Then declare a variable which will hold the result of the addition of the two numbers
+var result = a + b;
+//and then return the binary value of that result using the toString method
+return result.toString(2);
+}
+
+//second task
+// Write a program that finds the summation of every number from 1 to num. The number will always be a positive integer greater than 0.
+
+// For example:
+
+// summation(2) -> 3
+// 1 + 2
+
+// summation(8) -> 36
+// 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8
+
+// A solution to this would be a simple for loop
+var summation = function (num) {
+  // Code here
+  var result = 0;
+  for (let i = 0; i <= num; i++) {
+    result += i
+  }
+  return result;
+}
