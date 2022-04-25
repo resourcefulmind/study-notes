@@ -702,3 +702,44 @@ npm ERR!     C:\Users\Engr. Omodara\AppData\Local\npm-cache\_logs\2022-04-12T12_
 
 - To search for player profiles, there obviously needs to be a Search Bar right and that will be the first component.
 - A class component is used in the `SearchBar.js` because at some point, there will be a change of state
+
+- To add styling into this project, use the semantic UI cdn like in the season's project and add it to the html in the public folder.
+
+- Now that a simple but fairly reasonable ui has been achieved, the next goal is for the project to be able to handle user inputs.
+
+- When the user types in the name of a player, the value of the input changes and this change can be seen, handled and monitored by the `onChange` method which can be  referenced in the input.
+
+**Take note that whatever function that will be referenced in the onChange method(the name for such methods are event handlers) is a callback and should be referenced without the parentheses otherwise the function will be called with each render and what the project really wants to achieve is to call the function at a later time....The key is to pass the function which will be invoked as a callback into the event handler which is a prop**
+
+- The property name onChange is a special javascript method that tells us when there is a difference/change in the values entered. There are several others like onClick and onSubmit. 
+
+- **Also take note about the naming convention. When naming a function to be passed as a callback into an event handler prop, start with the "on" and then attach the name of the element that the callback is being assigned to and then the event that is being watched out for, hence _onInputChange_**
+
+- There is also another way(an alternative way) to write the syntax for event handlers like so:
+
+```
+<input type="text" onChange={(event) => console.log(event.target.value)}>
+```
+- **The above is the same thing as `onChange`. This can be used when you only want to see a single thing and the event can be abbreviated as "e".**
+
+# What are controlled and uncontrolled form elements?
+- The input i the project is an uncontrolled form element but React devs prefer to work with controlled elements.
+
+Close look at the code below:
+
+```
+<input type="text" value={this.state.term} onChange={e => this.setState({ term: e.target.value })} />
+```
+What happens above is that:
+1. The user types in their input
+2. The callback attached to the event handler is invoked. `setState` is called with the the new value, the component is re-rendered (re-call that anytime `setState` is called, a component re-renders) and the input is told what its value is(coming from state). 
+
+**The above is what is called a controlled element**
+
+- The major difference between the controlled and uncontrolled is that information is stored inside the component on the state property in the DOM as against storing info in the HTML element and this enables the developer or suer to be able to know the given data at any point in time. 
+- A default value can also be rendered just by adjusting the state.
+- Also things like capitalizing words by default can be done.
+
+
+
+
