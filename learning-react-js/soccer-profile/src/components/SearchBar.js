@@ -1,11 +1,16 @@
 import React from 'react';
 
 class SearchBar extends React.Component {
+    state = { term: '' };
+
     render() {
         return (
-            <div>
-                <form>
-                    <input type="text" />
+            <div className="ui segment">
+                <form className='ui form'>
+                    <div className="field">
+                        <label>Enter A Player Name</label>
+                        <input type="text" value={this.state.term} onChange={e => this.setState({ term: e.target.value })} />
+                    </div>
                 </form>
             </div>
         );
