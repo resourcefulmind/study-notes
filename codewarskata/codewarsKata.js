@@ -115,7 +115,7 @@ var summation = function (num) {
   return result;
 }
 
-// Kata for 20th April, 2Convert number to reversed array of digits
+// Kata for 26th April, 2Convert number to reversed array of digits
 
 //first task
 //Given a random non-negative number, you have to return the digits of this number within an array in reverse order
@@ -173,3 +173,41 @@ function nbYear(p0, percent, aug, p) {
 
 nb_year(1500, 5, 100, 5000) -> 15
 nb_year(1500000, 2.5, 10000, 2000000) -> 10
+
+
+// Kata for 28th April, 2Convert number to reversed array of digits
+
+//first task
+// Consider an array/list of sheep where some sheep may be missing from their place. We need a function that counts the number of sheep present in the array (true means present).
+
+//First we declare the function countSheeps and pass arrayOfSheep into it
+function countSheeps(arrayOfSheep) {
+  // There is a number of sheep and there cannot be negative sheep so initial number should start from zero
+  var num = 0;
+  //loop through the array of sheep and check which is true and if true, increment until the loop is complete
+    for(var i = 0; i < arrayOfSheep.length; i++)
+    {  
+      if (arrayOfSheep[i]==true) { 
+        num++; 
+      }
+    }
+    return num;
+}
+
+//second task
+// Deoxyribonucleic acid, DNA is the primary information storage molecule in biological systems. It is composed of four nucleic acid bases Guanine ('G'), Cytosine ('C'), Adenine ('A'), and Thymine ('T').
+
+// Ribonucleic acid, RNA, is the primary messenger molecule in cells. RNA differs slightly from DNA its chemical structure and contains no Thymine. In RNA Thymine is replaced by another nucleic acid Uracil ('U').
+
+// Create a function which translates a given DNA string into RNA.
+
+// For example:
+
+// "GCAT"  =>  "GCAU"
+// The input string can be of arbitrary length - in particular, it may be empty. All input is guaranteed to be valid, i.e. each input string will only ever consist of 'G', 'C', 'A' and/or 'T'.
+
+function DNAtoRNA(dna) {
+// Use the replace method and the regular expression, /T/g that will globally, replace every instance of T and replace it with U.
+return dna.replace(/T/g, "U");
+}
+
