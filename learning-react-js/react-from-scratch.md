@@ -740,6 +740,50 @@ What happens above is that:
 - A default value can also be rendered just by adjusting the state.
 - Also things like capitalizing words by default can be done.
 
+- Disable the default "refresh" behavior in forms using `event.preventDefault()` in the callback that is being passed to the event handler.
+
+# Understanding the `this` keyword
+
+- In a component, the value of `this` is a reference back to the class itself. It is a reference to the instance of the class component which we are writing code inside. For example, in the SearchBar component, `this.state` will give access to the object that belongs to that particular instance of the component, in this case, the SearchBar component.
+
+```
+class Car{
+	setDriveSound(sound) {
+    this.sound = sound;
+  }
+  
+  drive() {
+  	return this.sound;
+  }
+}
+
+const car = new Car();
+
+car.setDriveSound('vrooom');
+
+car.drive();
+```
+
+**Whenever you want to find out the value of 'this' inside of a method on a class, we look not at the method itself but at where we call the method. Find the function name of that method, in this case 'drive', look to the left of the dot of that function and then look at the variable that is referenced there. The instance of that variable is what the 'this' will be equal to** 
+
+# What to do when the "Cannot read property 'state'` of undefined" error pops up
+
+- Assigning an arrow function to the event handler will make sure that the `this` keyword is always read properly and does not give the **`Cannot read property 'state'` of undefined** error. 
+- Other ways of solving the above are
+1. To use a constructor function.
+2. To pass an arrow function directly into the event handler prop like `onChange = {e => this.setState({ term: e.target.value })}` and `onSubmit={(event) => this.onFormSubmit()}`
+
+# How to pass and communicate from child to parent
+
+- So far info has been passed from top to down...from app to searchbar and that has been made possible through the **props** system.
+- To pass back, refactor App component back to a class based component so that it can have some function that it can take and pass down into the search bar.
+
+- When you create a JSX yourself like SearchBar, you can name your eventhandler whatever you want as against when you are using a default like <INPUT>
+
+**Keep in mind that when referencing props in functional components, `props.(whatever callback)` is fine BUT WHEN referencing props in class components, IT IS COMPULSORY TO ADD `this` to it**
+
+
+
 
 
 
