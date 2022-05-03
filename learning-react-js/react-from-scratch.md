@@ -782,8 +782,24 @@ car.drive();
 
 **Keep in mind that when referencing props in functional components, `props.(whatever callback)` is fine BUT WHEN referencing props in class components, IT IS COMPULSORY TO ADD `this` to it**
 
+# Fetching Data
+- To fetch data, a network request needs to be made to an API from the app in the browser, and then the API will return a big list of JSON records that will contain information matching what the app requested for. The JSON can then be rendered on the screen and styled as preferred too.
 
+- Register on whatever service API you want to use and create a new app or project. What is really needed are the access/API keys.
 
+- It is really hard to get an API with player profiles but I was able to get a few which can be helpful to others thanks to Rapid API. Will leave a link:
+https://rapidapi.com/collection/football-soccer-apis
 
+- React does not make and manage these network requests itself, it is not its job...instead a separate piece of code does that. A third party package called **axios** or just use **fetch**. 
+
+*axios* can be installed using npm while *fetch* is a function built into modern browsers.
+
+- Axios is also just a little heavier than fetch but fetch is a far more basic and lower-level code and if fetch is used, alot of code which is already in axios has to be written.
+
+_To install axios_
+```
+npm install --save axios
+```
+After that, import into App.js and by convention place the 3rd party import above the imports from things you have built yourself.
 
 
