@@ -802,4 +802,17 @@ npm install --save axios
 ```
 After that, import into App.js and by convention place the 3rd party import above the imports from things you have built yourself.
 
+## How To Read the API doc and implement "Making a Request"
 
+- To check which endpoint will get the list of players and to make a search for a player matching a query, a **GET** type network request will be used. In this case, that endpoint will be `/v3/players` Go to [rapidapi](https://rapidapi.com/api-sports/api/api-football)
+
+- Make a request with axios in the `onSearchSubmit` handler by calling `axios.get(a, b)` where:
+"a" will be the a parameter that is the address that the **GET** request is being made to, and "b" will be an object that will have a bunch of options that wil customize that particular request.
+
+- Now, the request is being made to `/v3/players` but that's not the only path in our request url, the root url for the rapidapi must first be included. The root URL of the rapidapi is `https://api-football-v1.p.rapidapi.com` and will be the first path which will be joined by the endpoint at the end. Combined, they will specify where a **GET** request is being made to.
+
+- To get access to the API, identification has to be verified. Header parameters contain these identification keys (also called access keys). Access keys can either be put in an `X-RapidAPI-Key` header or appended to a query string when the request is being made.
+
+- Include the query parameter that will contain the search term to be used. "params" will specify the different query string parameters in the request. 
+
+- To see the responses, pull open the network tab in dev tools, clear request log, type in the input and send. Two results should be gotten and the result with the method of "GET" and in the preview, the data should be there.
