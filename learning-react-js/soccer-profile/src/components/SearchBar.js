@@ -12,6 +12,7 @@ class SearchBar extends React.Component {
     render() {
         return (
             <div className="ui segment">
+                <h1>Opeyemi's Soccer Profile App</h1>
                 <form onSubmit={this.onFormSubmit} className='ui form'>
                     <div className="field">
                         <label>Enter A Player Name</label>
