@@ -7,37 +7,42 @@
 - It is called a React component because it is a plain JS function that returns some JSX.
 
 # What are the two functions of a React component?
+
 - React components like the app function have two jobs
     1. They produce JSX which tells React what we want to show on the screen to the user.
     2. They handle user events such as clicking a button or typing into an input.
 - All components created in React WILL BE FUNCTIONS THAT RETURN JSX
 
 # WHat is JSX? What does it do? Is JSX similar to HTML?
-- JSX is that thing that looks like html in the return statement. 
+
+- JSX is that thing that looks like html in the return statement.
 - They are really a set of instructions to tell React exactly what content we want to show on the screen at any given time. For example, in the code, the jsx was trying to tell react that it wanted to show a div with some content inside of it.
 - JSX has many similar rules as html, closing element tags and self closing tags behave the same way as normal html.
 - We make use of JSX elements to tell React that we want to create a normal HTML element like a div, span, h1, table, input, hr, etc
 - We can also make use of JSX to tell React that we want to SHOW another component as seen in the app component with the "field", "languages" and "translate" components.
 
 # What does React do with all the JSX?
-- Referencing the app component, whenever the JSX is returned from a component, React is going to iterate over every element in the JSX block by asking itself "IS THIS A DOM ELEMENT?". If it is then it shows that element on the screen to the user. 
+
+- Referencing the app component, whenever the JSX is returned from a component, React is going to iterate over every element in the JSX block by asking itself "IS THIS A DOM ELEMENT?". If it is then it shows that element on the screen to the user.
 - If the element has children like a div to other components that might be inside the field, React will check them too and when it asks itself "IS THIS A DOM ELEMENT?", the answer will be NO, IT IS A COMPONENT and then React will CALL THAT COMPONENT function(this means that it will look for the definition of that component, i.e where it was created) and inspect all the JSX which that one will also give back by asking itself that same question and doing the same iteration.
 
 For context, in the translator app, the app component returned a div and that div had field, languages and translate in it which are components created in the src -> components folder.  
 
 # How does React display content on the screen?
+
 - When you type in for instance a url for a website using react or even use a localhost or liveserver, whatever you used will make a HTTP REQUEST to wherever your react app is hosted or being housed.
 - From that request, the browser will load up an index.html file and parse all the html and script tags that are inside there.
 - One of the script tags will tell the browser or localhost to make another request and get some javascript files. In this our react case, the js file is te BUNDLE.JS file.
-- The bundle.js file will combine all the different js files that are inside the project (in this case, app, field, languages and translate). 
+- The bundle.js file will combine all the different js files that are inside the project (in this case, app, field, languages and translate).
 - The platform housing your code will then send the bundle.js file back to the browser or localhost and all the js inside it will be executed.
 
-
 # What is the key line of code to know when trying to understand how react initially boots up our application and get everything running from the get-go?
+
 - The first js file that will be automatically executed when the bundle.js is executed is the INDEX.JS file.
 It is the file that boots up our react application and gets everything running.
 
 # How does it do that?
+
 ReactDOM.render(<App />, document.getElementById("root"));
 
 The first argument to "ReactDOM.render" is the App component. React will call the app function and return all the JSX and turn it into html.
@@ -46,22 +51,22 @@ The second argument to "ReactDOM.render" is a reference to where we want to show
 
 THE ABOVE IS HOW THE APP FIRST GETS STARTED UP. WE FIRST TURN OUR APP COMPONENT INTO HTML AND THEN TELL REACT WHERE WE WANT ALL THAT HTML TO BE DISPLAYED.
 
-
 # Why are there two React libraries inside the index.js file?
 
 There is React and React DOM. These are the two separate libraries anyone building a react application will be working with.
 
 - The **React** library is called a **reconciler** because it has a bunch of code inside it that
+
 1. knows how to get a bunch of different components to work together
 2. knows how to call a component function
 3. knows how to get back that jsx
 4. knows how to essentially iterate over those elements and know whether to create an html element or call some other component function.
 
-- The **ReactDOM** library is called a **renderer** because it knows how to take a set of instructions that is needed to create html and ACTUALLY CREATE HTML OUT OF IT. 
+- The **ReactDOM** library is called a **renderer** because it knows how to take a set of instructions that is needed to create html and ACTUALLY CREATE HTML OUT OF IT.
 - It is the one responsible for actually taking the jsx, turning it into html and inputting that html into the DOM and shows it to the user.
 
-
 # useState seems confusing...what is it for?
+
 - In the app function, useState was used a few times
 - It is a function used to work with the state system in react.
 - The state system is all about managing data inside of your application, particularly data that changes over time.
@@ -69,6 +74,7 @@ There is React and React DOM. These are the two separate libraries anyone buildi
 - In general, the state system is used anytime **to make React update the HTML or content on the screen**
 
 # To Generate a new React app on local machine
+
 - Install/update your Node JS (Google is the best tool for learning how to do it.)
 - Install create-react-app
 The recommended method for generating a project is now:
@@ -78,20 +84,26 @@ npx create-react-app my-app
 ```
 
 If you get any errors about missing templates or how a global Create React App install is no longer supported, try clearing your npx cache:
+
 ```
 npx clear-npx-cache
 ```
+
 If you still are met with errors referencing a globally installed Create React App you likely need to remove the global package from your system:
+
 ```
 npm uninstall -g create-react-app
 ```
+
 - Generate a project
 - Build Project
+
 # Why do we have so many packages installed just to run a simple react project?
+
 - The react project has a tonne of dependencies like
     1. Webpack
     2. Babel
-    3. Dev Server 
+    3. Dev Server
 **Babel** - A command line tool that makes the life of a developer easy by taking in any version of js and spitting out an ES5 version that can be understood and can be executed by most or all browsers.
 
 # A Deep Dive Into The create-react-app just made
@@ -111,6 +123,7 @@ npm uninstall -g create-react-app
 - **gitignore**: It is a reference to the git version control system and lists out the files and folders which git should ignore when we make changes or push to our repositories.
 
 ## How to get a React app started and how to stop it?
+
 - First of all, it is important to know that you cannot start a react app without navigating into the react project directory so ALWAYS MAKE SURE YOU ARE IN YOUR PROJECT FOLDER BEFORE STARTING UP THE PROJECT.
 
 - To start a react application once you are in your project folder, input the following command in the command line
@@ -118,49 +131,59 @@ npm uninstall -g create-react-app
 ```
 npm start
 ```
+
 For the current version of node, it might change on your terminal to **react-script start** but let it do its thing.
 
-The above will initialize your application and a new tab will open in your browser with the url **localhost:3000** or on your network **http://192.168.0.193:3000** The latter can be used if the localhost doesn't work.
+The above will initialize your application and a new tab will open in your browser with the url **localhost:3000** or on your network **<http://192.168.0.193:3000>** The latter can be used if the localhost doesn't work.
 
 - If the above port is in use, the project can be started on a different port.
 
-- To stop a react application, type the command 
+- To stop a react application, type the command
+
 ```
 Ctrl/Cmd + C
 ```
+
 More Questions?
+
 # Getting a deeper understanding into how JSX works
 
-
 ## Why do devs delete all files in the src. Why?
+
 This is simply because the files in there are mostly pre-loaded files for the react template and the only one really needed in the src folder at the start is the index.js file. So make sure to create only that file after deleting all files in the src folder.
 
 ## Why do we name the file index.js
 
-
 ## What happens after the delete when you delete the files in the src folder?
+
 The react template stops displaying and you only see a white screen such as you see when you are just starting to build with your regular html.
 
 ## How do we get content to appear on the screen again with React?
+
 There are three steps that would guide you through the process of getting things to show up on React again.
 
 # What are the three steps needed to display a simple content on the screen?
+
 1. Import the React and ReactDOM libraries.
 2. Create a React component.
 3. Take the react component and show it on the screen.
 
-### 1. Import the React and ReactDOM libraries.
+### 1. Import the React and ReactDOM libraries
 
-# Explain the import statements and why we are importing stuff from stuff.
+# Explain the import statements and why we are importing stuff from stuff
+
 Any code that is written in a react project is not going to be automatically shared with the rest of the project or files.
 To get access to other files within the current file you are working from, **the import statement gets that done**
 
 In this case, importing React and ReactDOM should look like this;
+
 ```
 import React from 'react';
 import ReactDOM from 'react';
 ```
+
 Syntax explanation would be:
+
 - **import** - tells the JS system that we want to reach out to a dependency or another file inside our project. Dependencies such as react can be imported or regular files created by the dev.
 
 - **React** - can be any other variable and will be the assignee of any code that is taken from the dependency or file.
@@ -170,30 +193,37 @@ Syntax explanation would be:
 - **react** - this is the name of the dependency or path to the file which we are importing the code from. What happens is that when javascript comes to this, it wil go and find the react folder from the node modules and pull the code from there.
 
 # what is the difference between an 'import' and a 'require'statement?
+
 - The import statement is used for ES2015 modules while the 'require' statement makes use of the CommonJS modules.
 
-### 2. Create a React component.
+### 2. Create a React component
 
-# What is a react component.
+# What is a react component
+
 - Can either be a function or a class
 - purpose of a component that is a function or a class is to produce HTML to show the user using JSX.
 - Secondary purpose is to handle feedback from the user using Event Handlers.
 
 # How to create a functional react component?
+
 ```
 const App = function() {
     return <div>My name is Opeyemi</div>
 };
 ```
+
 Can also be re-written using ES6 as so;
+
 ```
 const App = () => {
     return <div>My name is Opeyemi</div>
 };
 ```
 
-### 3. Take the react component and show it on the screen.
+### 3. Take the react component and show it on the screen
+
 - This is done by rendering the reactDOM with the component as the first argument and the reference to the index.html where the function will be put in the div of the index file as the second argument.
+
 ```
 ReactDOM.render(
     <App />, document.querySelector('#root');
@@ -201,16 +231,17 @@ ReactDOM.render(
 ```
 
 ## How do you spot errors in your react application?
+
 If something isn't right, system will likely show you errors in the following ways;
 
 1. Some errors will show a blank white screen and ONLY print to the browser console.
 2. Some other errors print to the screen, console, and terminal.
 3. Linter warnings will ONLY print to the terminal.
 
-
 ## Understanding JSX
+
 - Babel usually is used to convert ES2015 modules to ES2005 so most browsers can be supported. But it also helps to process JSX.
-- No browser natively understands what JSX is, so JSX is converted to normal javascript before it is fed to the browser. 
+- No browser natively understands what JSX is, so JSX is converted to normal javascript before it is fed to the browser.
 - A tool on babeljs.io is available for this conversion.
 - JSX is written just for simplicity sake and converted back to plain JS by Babel before being fed to the browser.
 - In summary, JSX is not HTML, tools will turn written JSX back into vanilla JS and JSX is similar to HTML.
@@ -219,6 +250,7 @@ If something isn't right, system will likely show you errors in the following wa
 **Better still, if it is a multiline code that is being returned, open with a parentheses and make sure the beginning of the parentheses is on the same line as the return statement and the closing parentheses is below the closing tag of the code**
 
 ## Are there differences between HTML and JSX? What are these differences?
+
 ```
 const App = () => {
     return (
@@ -233,18 +265,18 @@ const App = () => {
     )
 };
 ```
+
 - The above code will throw an error because there are differences in HTML and JSX styling
 
 1. Instead of the quotes that will follow the **"equal to"** sign, two **curly brackets** are going to be used, one signifying a **javascript variable** and the other signifying that it is a **javascript object.**
-2. when compound styles like `background-color` exist in HTML and have to be styled in JSX, use camelCase. In other words, correct syntax will be `backgroundColor` and the value will be in single quotes. 
+2. when compound styles like `background-color` exist in HTML and have to be styled in JSX, use camelCase. In other words, correct syntax will be `backgroundColor` and the value will be in single quotes.
 3. Styles are separated with a comma and not semi-colons.
 4. With JSX, it is a convention to use double quotes for JSX properties and single quotes everywhere else. **Using it otherwise will not change anything but it is nice to follow convention**
 5. Instead of using **class** to style, in JSX **className** is used. This is to avoid confusions with the javascript class which is used often in JSX and React.
-6. JS variables are easily referenced with JSX but HTML doesn't have such power. 
-
-
+6. JS variables are easily referenced with JSX but HTML doesn't have such power.
 
 Re-writing the code with the appropriate style will give;
+
 ```
 const buttonText = 'Order Now!';
 
@@ -261,12 +293,14 @@ const App = () => {
     )
 };
 ```
-PS: I added a few styles more because I love that I am actually able to write JSX with a full understanding. 
+
+PS: I added a few styles more because I love that I am actually able to write JSX with a full understanding.
 
 # Seems like JSX can do everything, what can't it do then?
-**It is important to note that variable types like numbers, strings and even stuff like arrays can be referenced directly in JSX but OBJECTS cannot be referenced directly. Objects can be used as long as it is not text. The dot notation has to be used for such a reference** 
 
--  Other differences exist that will not stop the app from working but will show up on the console. Checking the console regularly is the best convention for this. **It is best practice to keep the console open to check for errors.**
+**It is important to note that variable types like numbers, strings and even stuff like arrays can be referenced directly in JSX but OBJECTS cannot be referenced directly. Objects can be used as long as it is not text. The dot notation has to be used for such a reference**
+
+- Other differences exist that will not stop the app from working but will show up on the console. Checking the console regularly is the best convention for this. **It is best practice to keep the console open to check for errors.**
 
 After JSX, what next? **Communication with props**
 
@@ -276,30 +310,35 @@ After JSX, what next? **Communication with props**
 - Component Reusability (reusing components throughout the application like buttons and menus and navigation bars/menus and the likes).
 - Component Configuration (Giving the same components different configurations)
 
-**A build of a simple comment-section app can be found in the folder and will cement the knowledge for understanding the **three tenets of react components****
+**A build of a simple comment-section app can be found in the folder and will cement the knowledge for understanding the**three tenets of react components****
 
 # Additional Read: Semantic UI CDN
+
 - Semantic UI is a front-end development framework similar to bootstrap designed for theming. A CSS library actually. It contains pre-built semantic components that helps create beautiful and responsive layouts using human-friendly HTML.
 
 - And it integrates with React, Angular, Meteor, Ember and many other frameworks to help organize UI layer alongside application logic.
 
 - Install via CDN with
+
 ```
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
 ```
+
 Full documentation to learn all about semantic UI is here:
-https://semantic-ui.com/
+<https://semantic-ui.com/>
 
 - To get started
-https://semantic-ui.com/introduction/getting-started.html
-
+<https://semantic-ui.com/introduction/getting-started.html>
 
 # Additional Read: FakerJS library
+
 - A JavaScript library for generating fake data. Fake data is useful when building and testing our application.
 - **The library currently no longer exists and is not being maintained.** However, as of today, it still exists in the NPM registry and we are able to install and use it in our projects by specifying the last known good version:
+
 ```
 npm install faker@5.5.3
 ```
+
 **faker was used to generate the fake avatar for the comment section project**
 
 - To generate an avatar, you add it by calling {faker.image.avatar()}
@@ -308,10 +347,10 @@ npm install faker@5.5.3
 
 - One other thing is that for every refresh, there is a different image and the occasional broken image too
 
-- **Important Notice**: For some reason, faker JS refused to generate the data needed. I do not know if this has to do with the whole developer fracas that was on the news. I tried **falso** but their documentation was not it for me so i settled for **https://via.placeholder.com** which is very easy to use.
-
+- **Important Notice**: For some reason, faker JS refused to generate the data needed. I do not know if this has to do with the whole developer fracas that was on the news. I tried **falso** but their documentation was not it for me so i settled for **<https://via.placeholder.com>** which is very easy to use.
 
 ## Why do we need reusable components?
+
 Reusable components are a necessity so as not to have to deal with the complexities of very long and cumbersome JSX as well as to write clean and tidy code. It is simply the isolation of duplicated JSX in one place so they can be reused.
 
 ## How to Create Reusable and Configurable Component and extract JSX to the new component?
@@ -325,20 +364,26 @@ Reusable components are a necessity so as not to have to deal with the complexit
 
 4. Copy and paste the duplicated JSX to your new component.
 
-5. use React's props system to make sure that the new component is configurable. 
+5. use React's props system to make sure that the new component is configurable.
 
 ## What exactly are props or the React props system?
+
 - Props allows us to configure how a component behaves or the content it shows. In the comments section project and the CommentDetail component, the author of the comment, the date and the text are hard coded. They will probably be dynamic and change with time and users so props can help with that.
 
-## How do we get a reusable component like CommentDetail.js to show up inside another file like index.js in the project...
+## How do we get a reusable component like CommentDetail.js to show up inside another file like index.js in the project
+
 - Export the CommentDetail.js file
+
 ```
 export default CommentDetail
 ```
+
 - import it to the index.js
+
 ```
 import CommentDetail from './comments-section-app/src/CommentDetail'
 ```
+
 [**no .js involved because webpack will look for that for you automatically**]
 
 - Export makes the file available to other parts of the project, import makes it actually usable.
@@ -365,21 +410,25 @@ The app component is the parent component while the CommentDetail are children c
 - A child cannot pass information back to the parents, at least not directly.
 
 - In props, it's a 2 stage process:
+
 1. On one hand we provide information
 2. On the other hand we consume the information
 
-- The syntax is very similar to using the attributes in normal JSX and HTML. 
+- The syntax is very similar to using the attributes in normal JSX and HTML.
 
 *Providing information:*
+
 ```
 <CommentDetail author= "Nader Dabit" />
 ```
+
 where author = the name of the prop
 "Nader Dabit" could have also been referenced as a JS variable.
 
 - Props are unique and even though they might have the same attribute, they will not have the same values when set differently.
 
 *Consuming the information*
+
 - Pass props as a parameter inside the Component/reusable function
 - reference `props.key` to access what is to be updated in the hard coded place in JSX.
 
@@ -389,8 +438,9 @@ where author = the name of the prop
 
 - Use semantic UI > views > cards to make the Approval card component and import it to the index.js file
 
--  To get the approval card to show the comment detail without hard coding, 
-1. Insert the `CommentDetail` into the Approval Card as a children property of the Approval Card in the `index.js` file. 
+- To get the approval card to show the comment detail without hard coding,
+
+1. Insert the `CommentDetail` into the Approval Card as a children property of the Approval Card in the `index.js` file.
 2. Pass props to the `ApprovalCard.js` component
 3. Reference the `CommentDetail.js` component in the div where you want it to show in the `ApprovalCard.js` file using `props.children`.
 
@@ -398,27 +448,28 @@ where author = the name of the prop
 
 **You can pass in plain text or multiple elements using the method above but the key thing is to pass props.children in the component otherwise it will not work**
 
-
-
-## What are the differences between Functional Components and Class Components.
+## What are the differences between Functional Components and Class Components
 
 Functional components can:
+
 - produce JSX to show content to the user
 - use Hooks to run code at specific points in time
 - Use Hooks to update content on the screen to the user.
 
-WHILE 
+WHILE
 
 Class components can:
+
 - produce JSX to show content to the user
 - use the lifecycle method system to run code at specific points in time
 - use the 'state' system to update content on the screen to the user.
 
+## PS, a developer has to know both
 
-## PS, a developer has to know both.
 Easy to learn Class components -> Learn Hooks --> Learn redux
 
 # Advantages of using Class components
+
 - Easier code organization.
 - Get access to the 'state' system
 - Easier to handle user input
@@ -430,17 +481,20 @@ Easy to learn Class components -> Learn Hooks --> Learn redux
 - This app will be called the **Seasons app** and will show the weather at the location of a person.
 
 To implement this, a few things need to be done;
+
 1. Location of user must be determined
 2. The current month.
 3. Styling and wordings need to change based on whatever is selected
 
 - Two main components will be required for this;
+
 1. The App Component which will have the code to determine location + month and will pass it as a prop to the SeasonDisplay.
 2. The SeasonDisplay which will show different text/icons based on the props.
 
 - To determine the physical location of the user, the geolocation API can be used. The following notes have been taken from the mozilla mdn docs because I have never previously worked with the geolocation API.
 
 ## Geo-location API
+
 - It allows the user to provide their location to web applications if they so desire. For privacy reasons, the user is asked for permission to report location information.
 - The Geo-location API is accessed via a call to `navigator.geolocation`; this will cause the user's browser to ask them for permission to access their location data. If they accept, then the browser will use the best available functionality on the device to access this information (for example, GPS).
 
@@ -449,7 +503,7 @@ To implement this, a few things need to be done;
 1. `Geolocation.getCurrentPosition()`: Retrieves the device's current location.
 2. `Geolocation.watchPosition()`: Registers a handler function that will be called automatically each time the position of the device changes, returning the updated location
 
-More info here 
+More info here
 [Link](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API)
 
 **From the position object, the latitude is gotten and will give the ability to decide which hemisphere the user is**
@@ -463,6 +517,7 @@ This is where **Class Based Components** come in. It is the first step towards s
 - Class Based components will help with telling the app to re-render itself when it has gotten the results from calling the geo-location API.
 
 - So new app flow will be
+
 1. JS file is loaded by browser
 2. App component gets created
 3. Geo-location service API is called
@@ -473,17 +528,20 @@ This is where **Class Based Components** come in. It is the first step towards s
 
 **So we use a class based component instead of a functional component so that we can use React's state system**
 
-## To use Class based components, the following rules have to be observed;
+## To use Class based components, the following rules have to be observed
+
 1. Create a javascript class (mandatory)
 2. Must extend React.component
 3. Must define a 'render' method that will return some JSX.
 
 - Reason for using extends React.Component is that it allows for pulling other methods into the class based component.
 
-# Using the state system in React.
+# Using the state system in React
+
 - This is the second part of the solution that will solve the seeming delay in getting our geo-location value back and re-rendering the app to update itself.
 
 ## THE RULES OF THE STATE SYSTEM IN REACT
+
 1. It is only usable with class components (this is not 100% true in recent times as state can technically be used with functional components via the "hooks" system)
 
 2. IT IS NORMAL TO CONFUSE PROPS WITH STATE. Most fresh react devs do this.
@@ -496,10 +554,11 @@ This is where **Class Based Components** come in. It is the first step towards s
 
 6. **State can only be updated using the function 'setState'** Most important rule of all as everyone makes an error when doing this early on.
 
-# How then do we initialize state? By using constructors.
+# How then do we initialize state? By using constructors
+
 - Constructors are not required by react as the render method is. It is not specific to react.
 
-- It is the first function that is going to be called anytime an instance of the App component is created and shown on the screen. It makes it a very suitable place to initialize state. 
+- It is the first function that is going to be called anytime an instance of the App component is created and shown on the screen. It makes it a very suitable place to initialize state.
 
 *It is not the only way to initialize state*
 
@@ -511,12 +570,11 @@ This is where **Class Based Components** come in. It is the first step towards s
 `this.state = { lat: null }`  
 The above will contain the relevant pieces of data
 
--  To update the state property, use the setState method and then just reference it using javascript.
+- To update the state property, use the setState method and then just reference it using javascript.
 
 **Do nt use direct assignments to set your states. The only exception is when we initialize the state in the constructor function**
 
-
-## The entire flow of the Seasons project from the beginning up to this point where the latitude shows up on the screen has been:
+## The entire flow of the Seasons project from the beginning up to this point where the latitude shows up on the screen has been
 
 1. JS file loaded by browser
 2. Instance of App component is created
@@ -532,11 +590,11 @@ The above will contain the relevant pieces of data
 11. React calls the render method a second time
 12. Render method returns some (updated) JSX
 
-## How to handle the second callback from the position function, the error callback.
+## How to handle the second callback from the position function, the error callback
 
 - This is done by adding a new state, like an error message and updating the state.
 
-*There's only one problem, app should always be user-centric and with the error just showing like that, the user begins to think there is actually an error so it is best to only show it when it is needed...i.e conditionally..this means certain thing should show at certain times(such as when the callback returns a success,when the latitude isn't entered and it has to return an error message and when both are entered and it is loading)* 
+*There's only one problem, app should always be user-centric and with the error just showing like that, the user begins to think there is actually an error so it is best to only show it when it is needed...i.e conditionally..this means certain thing should show at certain times(such as when the callback returns a success,when the latitude isn't entered and it has to return an error message and when both are entered and it is loading)*
 If statements would do the trick here....check the code for more.
 
 The method above is called conditional rendering and used for returning different types of JSX depending on whether the conditions are met or not. It is quite simple and straightforward but there are other nicer ways.
@@ -544,10 +602,10 @@ The method above is called conditional rendering and used for returning differen
 **setState is a very good way of initializing state but there is an alternative way. To understand that, component lifecycle methods need to be understood first.**
 
 # What is/are component lifecycle methods?
+
 - It is a function that can be optionally defined inside of class based components.
 - If the methods are implemented, they will be called automatically by React, at different points during a component's life cycle.
 - Lifecycle here simply means the period from which the component is created, rendered on the screen, updated, all through when it is removed.
-
 
 The lifecycle of components are typically as follows:
 
@@ -555,7 +613,7 @@ The lifecycle of components are typically as follows:
 2 Render (is called and JSX is returned and shown on the screen)
 3. `componentDidMount` is called immediately after the content shows up on the screen. It has to be invoked verbatim. After it is called, the component will sit and wait for an update via setState and the app is rerendered and updated with the new stuff.
 4. Each time the app rerenders, another method called `componentDidUpdate` will be called automatically. After this, the component will sit and wait again until another update is coming up and it will do the same thing for "n" number of times.
-5. If we decide to no longer show te component, then `componentWillUnmount` will be called. 
+5. If we decide to no longer show te component, then `componentWillUnmount` will be called.
 
 **anytime didUpdate is called, render will be called before it**
 
@@ -571,7 +629,8 @@ The lifecycle of components are typically as follows:
 
 5. `componentWillUnmount` is a good place to do clean up, especially non-react stuff eg using google maps ina  react application. It doesn't get used often.
 
-# Other component life cycle methods are:
+# Other component life cycle methods are
+
 1. shouldComponentUpdate
 2. getDerivedStateFromProps
 3. getSnapshotBeforeUpdate
@@ -594,13 +653,13 @@ It will render without the constructor because Babel will do the constructor imp
 
 - To clear things up...**We can take state from one component and pass it down as a prop to the child of that component which in this case the parent is "App" and the child is the "SeasonDisplay"**
 
-- Anytime `setState` is called in the "App" component, the app updates itself and causes the `SeasonDisplay` to be updated as well as re-rendered. 
+- Anytime `setState` is called in the "App" component, the app updates itself and causes the `SeasonDisplay` to be updated as well as re-rendered.
 
 Summarily, anytime `setState` is called, the component re-renders itself but also re-renders the children in it.
 
-## To Determine The Season now, first figure out the current month of the year and then use the latitude to determine what season it is.
+## To Determine The Season now, first figure out the current month of the year and then use the latitude to determine what season it is
 
-- To get the current month of the year, use 
+- To get the current month of the year, use
 `new Date().getMonth()`
 - Keep in mind that the result of the above is indexed so if the console prints "5" as the result, then it is April and so on. See code for more.
 - From geography lessons, There are two hemispheres which are the Nothern and Southern hemispheres but there's different climates.
@@ -612,7 +671,6 @@ Summarily, anytime `setState` is called, the component re-renders itself but als
 3. Winter (December – February) [This means indexes 11 to 1 ]
 4. Spring (March – May) [This means indexes 2 to 4 ]
 
-
 - And in Africa, which is the southern hemisphere, there are:
 
 1. Dry Season (Jan - March) [This means indexes 0 to 2 ]
@@ -621,21 +679,20 @@ Summarily, anytime `setState` is called, the component re-renders itself but als
 
 - End goal has always been to get the app to tell whether the season. A function with Conditionals/te should be able to do the rest. See code for more.
 
-
 - To add styling to the `SeasonDisplay` component and add weather icons to the screen, use semantic-ui icon cdn and the icon code should look like this
 
 ```
 <i class="(icon action) (icon name) icon"></i>
 ```
+
 The above is what was used in the course upon which I am building this knowledge. As seen in the code, I used FontAwesome instead and to set that all up, use the following instructions in these doc links
 
 [Setting it up](https://fontawesome.com/docs/web/use-with/react/)
 
-[To add icons](https://fontawesome.com/docs/web/use-with/react/add-icons) 
+[To add icons](https://fontawesome.com/docs/web/use-with/react/add-icons)
 
 - style project by opening up css file in src folder
 - name of css stylesheet should be the same as component to be styled.
-
 
 - Default props can be specified as a fallback in case a prop is omitted by error or forgetfulness. This can be done in the component itself like so;
 
@@ -644,18 +701,21 @@ Loader.defaultProps = {
     message: 'Loading...'
 }
 ```
+
 - Helper functions help greatly to avoid conditional statements when rendering and when a constant rule, say a border has to be shown regardless of whatever conditional statement is triggered.
 
-### Dealing with User Events, Fetching data and handling lists.
+### Dealing with User Events, Fetching data and handling lists
 
 - To properly hone this skill, build a soccer app that either displays the biography of a player when you search for them or displays their profile or something like that.
 
 # Thought Process
+
 - User has to search for a term and app needs to get that search term from the user.
 - After getting that search item, app needs to use search item to make request to an outside API and fetch data.
 - App needs to take fetched data and show them on the screen in a list and in tiles.
 
-- There will be two components apart from the app component, 
+- There will be two components apart from the app component,
+
 1. the searchbar component that will handle the search input that the user will type in.
 2. the results components that will display the results on the screen
 
@@ -694,8 +754,8 @@ npm ERR!     C:\Users\Engr. Omodara\AppData\Local\npm-cache\_logs\2022-04-12T12_
 3. run `"npm i web-vitals --save-dev"`
 4. run `npm start`
 
-
 # Project Structuring
+
 - Rather than inserting the other components directly into the src folder, it is good convention to make another subfolder containing the other components and leave the index.js file as a standalone in the src folder.
 
 - This way, the components created can be imported back into `index.js` and then rendered on the screen.
@@ -711,18 +771,20 @@ npm ERR!     C:\Users\Engr. Omodara\AppData\Local\npm-cache\_logs\2022-04-12T12_
 
 **Take note that whatever function that will be referenced in the onChange method(the name for such methods are event handlers) is a callback and should be referenced without the parentheses otherwise the function will be called with each render and what the project really wants to achieve is to call the function at a later time....The key is to pass the function which will be invoked as a callback into the event handler which is a prop**
 
-- The property name onChange is a special javascript method that tells us when there is a difference/change in the values entered. There are several others like onClick and onSubmit. 
+- The property name onChange is a special javascript method that tells us when there is a difference/change in the values entered. There are several others like onClick and onSubmit.
 
-- **Also take note about the naming convention. When naming a function to be passed as a callback into an event handler prop, start with the "on" and then attach the name of the element that the callback is being assigned to and then the event that is being watched out for, hence _onInputChange_**
+- **Also take note about the naming convention. When naming a function to be passed as a callback into an event handler prop, start with the "on" and then attach the name of the element that the callback is being assigned to and then the event that is being watched out for, hence *onInputChange***
 
 - There is also another way(an alternative way) to write the syntax for event handlers like so:
 
 ```
 <input type="text" onChange={(event) => console.log(event.target.value)}>
 ```
+
 - **The above is the same thing as `onChange`. This can be used when you only want to see a single thing and the event can be abbreviated as "e".**
 
 # What are controlled and uncontrolled form elements?
+
 - The input i the project is an uncontrolled form element but React devs prefer to work with controlled elements.
 
 Close look at the code below:
@@ -730,13 +792,15 @@ Close look at the code below:
 ```
 <input type="text" value={this.state.term} onChange={e => this.setState({ term: e.target.value })} />
 ```
+
 What happens above is that:
+
 1. The user types in their input
-2. The callback attached to the event handler is invoked. `setState` is called with the the new value, the component is re-rendered (re-call that anytime `setState` is called, a component re-renders) and the input is told what its value is(coming from state). 
+2. The callback attached to the event handler is invoked. `setState` is called with the the new value, the component is re-rendered (re-call that anytime `setState` is called, a component re-renders) and the input is told what its value is(coming from state).
 
 **The above is what is called a controlled element**
 
-- The major difference between the controlled and uncontrolled is that information is stored inside the component on the state property in the DOM as against storing info in the HTML element and this enables the developer or suer to be able to know the given data at any point in time. 
+- The major difference between the controlled and uncontrolled is that information is stored inside the component on the state property in the DOM as against storing info in the HTML element and this enables the developer or suer to be able to know the given data at any point in time.
 - A default value can also be rendered just by adjusting the state.
 - Also things like capitalizing words by default can be done.
 
@@ -748,12 +812,12 @@ What happens above is that:
 
 ```
 class Car{
-	setDriveSound(sound) {
+ setDriveSound(sound) {
     this.sound = sound;
   }
   
   drive() {
-  	return this.sound;
+   return this.sound;
   }
 }
 
@@ -764,12 +828,13 @@ car.setDriveSound('vrooom');
 car.drive();
 ```
 
-**Whenever you want to find out the value of 'this' inside of a method on a class, we look not at the method itself but at where we call the method. Find the function name of that method, in this case 'drive', look to the left of the dot of that function and then look at the variable that is referenced there. The instance of that variable is what the 'this' will be equal to** 
+**Whenever you want to find out the value of 'this' inside of a method on a class, we look not at the method itself but at where we call the method. Find the function name of that method, in this case 'drive', look to the left of the dot of that function and then look at the variable that is referenced there. The instance of that variable is what the 'this' will be equal to**
 
 # What to do when the "Cannot read property 'state'` of undefined" error pops up
 
-- Assigning an arrow function to the event handler will make sure that the `this` keyword is always read properly and does not give the **`Cannot read property 'state'` of undefined** error. 
+- Assigning an arrow function to the event handler will make sure that the `this` keyword is always read properly and does not give the **`Cannot read property 'state'` of undefined** error.
 - Other ways of solving the above are
+
 1. To use a constructor function.
 2. To pass an arrow function directly into the event handler prop like `onChange = {e => this.setState({ term: e.target.value })}` and `onSubmit={(event) => this.onFormSubmit()}`
 
@@ -783,23 +848,26 @@ car.drive();
 **Keep in mind that when referencing props in functional components, `props.(whatever callback)` is fine BUT WHEN referencing props in class components, IT IS COMPULSORY TO ADD `this` to it**
 
 # Fetching Data
+
 - To fetch data, a network request needs to be made to an API from the app in the browser, and then the API will return a big list of JSON records that will contain information matching what the app requested for. The JSON can then be rendered on the screen and styled as preferred too.
 
 - Register on whatever service API you want to use and create a new app or project. What is really needed are the access/API keys.
 
 - It is really hard to get an API with player profiles but I was able to get a few which can be helpful to others thanks to Rapid API. Will leave a link:
-https://rapidapi.com/collection/football-soccer-apis
+<https://rapidapi.com/collection/football-soccer-apis>
 
-- React does not make and manage these network requests itself, it is not its job...instead a separate piece of code does that. A third party package called **axios** or just use **fetch**. 
+- React does not make and manage these network requests itself, it is not its job...instead a separate piece of code does that. A third party package called **axios** or just use **fetch**.
 
 *axios* can be installed using npm while *fetch* is a function built into modern browsers.
 
 - Axios is also just a little heavier than fetch but fetch is a far more basic and lower-level code and if fetch is used, alot of code which is already in axios has to be written.
 
-_To install axios_
+*To install axios*
+
 ```
 npm install --save axios
 ```
+
 After that, import into App.js and by convention place the 3rd party import above the imports from things you have built yourself.
 
 ## How To Read the API doc and implement "Making a Request"
@@ -813,6 +881,48 @@ After that, import into App.js and by convention place the 3rd party import abov
 
 - To get access to the API, identification has to be verified. Header parameters contain these identification keys (also called access keys). Access keys can either be put in an `X-RapidAPI-Key` header or appended to a query string when the request is being made.
 
-- Include the query parameter that will contain the search term to be used. "params" will specify the different query string parameters in the request. 
+- Include the query parameter that will contain the search term to be used. "params" will specify the different query string parameters in the request.
 
 - To see the responses, pull open the network tab in dev tools, clear request log, type in the input and send. Two results should be gotten and the result with the method of "GET" and in the preview, the data should be there.
+
+### Handling requests with Async Await
+
+So far, this is what happens in the application.
+    - It is loaded up for the first time and the component renders itself with no list of images.
+
+    - Then the input is entered and the `onSearchSubmit` method is called.
+
+    - A request is then made to the rapidapi
+
+    - There is a little waiting period while that request is being resolved and a response is being generated. 
+
+    - When response is gotten, request is complete, the profile/biodata will be used to update what the app component is showing. To get the app to re-render, `setState` will be called on the App component and the biodata will be set as state on the component. That can then be used as an opportunity to show the profile.
+
+**Do take note that the network requests are asynchronous which means that it will take some amount of time for axios to reach out to rapidapi and get a response back and by the time that is done, the `onSearchSubmit` method will have already been exited**
+
+- To figure out how to get the data returned from the network request made and get a sort of notification for when the request is complete , there are two ways that can be done:
+
+    1. Attaching the .then() function to the axios request promise(**A promise is an object that will give a little notification when some amount of work, like a network request is completed**), passing the .then() an arrow function that can be called at a later point in the future. 
+    The arrow function is basically a callback that will be invoked with whatever data is gotten back from the API. The data returned is most times called `response`.
+
+    In the case of this project, we are concerned with the response object so it is `response.data.response`. The .then() method can always be used when working with a promise. **See line 15 in App.js**
+
+    2. By using the `async` and `await` keywords. It works by putting the `async` keyword before the `onSearchSubmit` handler and putting the `await` keyword before the axios request and then assigning it a variable called `response`. And then at the base, `response.data.response` can still be logged to the console.
+
+### Setting state after Async Requests
+
+After getting the response, we can setState on the component state which will cause the app to re-render and we can print out and display the data received from the rapidAPI
+
+- First initialize the state at the top of the class component.
+
+- Initialize the state with an object and set the property name to contain an empty array as default because what is being expected is a list of objects or array as the response. This helps so you do not get errors later.
+
+- Update state with the property which will cause it to re-render and then show how many results were received by passing the appropriate props, `this.setState({ profile: response.data.response });`. This will give an error `this.setState is not a function`. 
+
+- To take away the error message, use any of the solutions from  **What to do when the "Cannot read property 'state'` of undefined" error pops up** in line 833., in other words, changing the onSearchSubmit to an arrow function.
+
+### Creating Custom Clients
+
+- It is not recommended to put all of that axios code inside the App component so to clean up the code, create a new folder inside ./src named `api` and create a file called `rapidapi.js` which will hold all the configuration and axios code for the network request.
+
+- You can set default configurations for axios by using `axios.create` and including the headers and base URL and then importing that file into App.js
