@@ -926,3 +926,5 @@ After getting the response, we can setState on the component state which will ca
 - It is not recommended to put all of that axios code inside the App component so to clean up the code, create a new folder inside ./src named `api` and create a file called `rapidapi.js` which will hold all the configuration and axios code for the network request.
 
 - You can set default configurations for axios by using `axios.create` and including the headers and base URL and then importing that file into App.js
+
+- Then make a ProfileList component and pass profile into it in the App component.

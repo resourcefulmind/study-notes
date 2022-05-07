@@ -1,5 +1,6 @@
 import React from 'react';
 import rapidapi from '../api/rapidapi';
+import ProfileList from './ProfileList';
 import SearchBar from './SearchBar';
 
 
@@ -20,7 +21,7 @@ class App extends React.Component {
     return (
       <div className='ui container' style={{ marginTop: '10px' }}>
           <SearchBar onSubmit={this.onSearchSubmit} />
-          This search returned {this.state.profile.length} profile(s).
+          <ProfileList profile={this.state.profile} />
       </div>
     );
   }
