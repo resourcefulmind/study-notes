@@ -211,3 +211,56 @@ function DNAtoRNA(dna) {
 return dna.replace(/T/g, "U");
 }
 
+// Kata for 9th May,2022 Sum Arrays
+
+// Write a function that takes an array of numbers and returns the sum of the numbers. The numbers can be negative or non-integer. If the array does not contain any numbers then you should return 0.
+
+// Examples
+
+// Input: [1, 5.2, 4, 0, -1]
+// Output: 9.2
+
+// Input: []
+// Output: 0
+
+
+  function sumArray(arr) {
+    let sum = 0;
+    for (let i = 0; i < arr.length; i++) {
+    if (arr = []) {
+      return 0
+    } else {
+      return arr.reduce((acc, x) => acc + Number(x), 0);
+    }
+  }
+}
+
+sumArray([2, 4, 6, 8]);
+sumArray([[1, 5.2, 4, 0, -1]])
+
+// my solution was wrong as i oversimplified the problem by adding lines 230-232
+// solution would be 
+function sumArray(arr) {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    return arr.reduce((acc, x) => acc + Number(x), 0);
+  }
+}
+
+//second task
+// Your task is to make a function that can take any non-negative integer as an argument and return it with its digits in descending order. Essentially, rearrange the digits to create the highest possible number.
+function descendingNumbers(num) {
+  let result = num.toString().split('').sort((a, b) => b - a).join('')
+  return parseInt(result);
+}
+
+descendingNumbers(123456789)
+
+//third task
+// Make a function that will return a greeting statement that uses an input; your program should return, "Hello, <name> how are you doing today?".
+
+function greetingStatement(name) {
+  return `Hello, ${name} how are you doing today?`;
+}
+
+greetingStatement("Opeyemi");
