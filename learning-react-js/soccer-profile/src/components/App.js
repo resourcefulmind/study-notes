@@ -5,7 +5,7 @@ import SearchBar from './SearchBar';
 
 
 class App extends React.Component {
-  state = { profile: [] }
+  state = { profiles: [] }
 
   onSearchSubmit = async (term) => {
     const response = await rapidapi.get('/v3/coachs', {
@@ -14,14 +14,14 @@ class App extends React.Component {
     // .then(response => {
     //   console.log(response.data.response);
     // }); this is the .then() method
-    this.setState({ profile: response.data.response });
+    this.setState({ profiles: response.data.response });
   }
 
   render() {
     return (
       <div className='ui container' style={{ marginTop: '10px' }}>
           <SearchBar onSubmit={this.onSearchSubmit} />
-          <ProfileList profile={this.state.profile} />
+          <ProfileList profiles={this.state.profiles} />
       </div>
     );
   }
