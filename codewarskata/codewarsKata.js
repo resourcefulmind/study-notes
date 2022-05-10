@@ -264,3 +264,65 @@ function greetingStatement(name) {
 }
 
 greetingStatement("Opeyemi");
+
+// Kata for 10th May,2022 
+
+//First kata Sum Mixed Array
+// Given an array of integers as strings and numbers, return the sum of the array values as if all were numbers.
+
+// Return your answer as a number.
+//The values passed will be strictly converted to a number by the "Number" syntax
+function sumMix(x) {
+  let sum = 0;
+    for (let i = 0; i < arr.length; i++) {
+      return arr.reduce((acc, x) => acc + Number(x), 0);
+    }
+}
+
+// Second task
+// You Can't Code Under Pressure #1
+//Code as fast as you can! You need to double the integer and return it.
+function doubleInteger(i) {
+  // i will be an integer. Double it and return it.
+  return i * 2;
+}
+
+// Third Task
+//Vowel Count
+// Return the number (count) of vowels in the given string.
+
+// We will consider a, e, i, o, u as vowels for this Kata (but not y).
+
+// The input string will only consist of lower case letters and/or spaces.
+
+function getCount(str) {
+  let vowelsCount = 0;
+  const vowels = ['a', 'e', 'i', 'o', 'u']
+  for(let char of str) {
+    if (vowels.includes(char)) {
+      vowelsCount++
+    }
+  }
+  return vowelsCount;
+}
+
+getCount("abracadabra");
+
+//Fourth task
+// The highest profit wins!
+
+//Story
+
+// Ben has a very simple idea to make some profit: he buys something and sells it again. Of course, this wouldn't give him any profit at all if he was simply to buy and sell it at the same price. Instead, he's going to buy it for the lowest possible price and sell it at the highest.
+
+// Task
+
+// Write a function that returns both the minimum and maximum number of the given list/array.
+
+function minMax(arr){
+  return [Math.min(...arr), Math.max(...arr)]; 
+}
+
+minMax([1,2,3,4,5])   == [1,5]
+minMax([2334454,5])   == [5, 2334454]
+minMax([1])           == [1, 1]
