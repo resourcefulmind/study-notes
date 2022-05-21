@@ -932,3 +932,16 @@ After getting the response, we can setState on the component state which will ca
 - When working with arrays, understanding map statements is key to building lists with react.
 
 - To display the list of profiles, all that is needed to map over the `props.profile` and call the profile from the list of profiles
+
+### Why does the warning "Each child in a list should have a unique "key" prop." show up in the console when the list is initially rendered after mapping?
+
+The "key" is a performance consideration that helps React render lists or updates to lists. It is important that keys are used when displaying lists.
+The "id" is preferably used as the key because every one of the items in the list will be rendered as either a div, span, li or as the case may be. The key is meant to correspond with one distinct item in the list to be rendered and more often than not, APIs will always have "IDs" for lists.
+
+- The key should only nbe added to the root element that is being returned from the list of the array.
+
+- version 1 of this app is finished but it isn't UI worthy so version 2 will come up soon.
+
+### V2 of the project
+
+- Styling will be done via CSS in the `ProfileList.css` file.
