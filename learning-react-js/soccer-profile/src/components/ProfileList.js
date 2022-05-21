@@ -5,7 +5,7 @@ const ProfileList = (props) => {
       const profiles = props.profiles.map((profile) => {
          return (
                 
-                <div> 
+                <div key={profile.id}> 
                     <div>
                     <h1>{profile.firstname} {profile.lastname}</h1>
                     <img src={profile.photo} alt='Jurgen Klopp'/>
@@ -25,19 +25,19 @@ const ProfileList = (props) => {
                         <p>{profile.firstname} {profile.lastname}, since starting his managerial career has coached the following teams: </p>
                         <div>
                             <h1>{profile.career[0].team.name}</h1>
-                            <img src={profile.career[0].team.logo} />
+                            <img src={profile.career[0].team.logo} alt={profile.career[0].team.name}/>
                             <p>Started Role As Head Coach: {profile.career[0].start}</p>
                             <p>Ended Role As Head Coach: {profile.career[0].end}</p>
                         </div>
                         <div>
                             <h1>{profile.career[1].team.name}</h1>
-                            <img src={profile.career[1].team.logo} />
+                            <img src={profile.career[1].team.logo} alt={profile.career[1].team.name}/>
                             <p>Started Role As Head Coach: {profile.career[1].start}</p>
                             <p>Ended Role As Head Coach: {profile.career[1].end}</p>
                         </div>
                         <div>
                             <h1>{profile.career[2].team.name}</h1>
-                            <img src={profile.career[2].team.logo} />
+                            <img src={profile.career[2].team.logo} alt={profile.career[2].team.name}/>
                             <p>Started Role As Head Coach: {profile.career[2].start}</p>
                             <p>Ended Role As Head Coach: {profile.career[2].end}</p>
                         </div>
