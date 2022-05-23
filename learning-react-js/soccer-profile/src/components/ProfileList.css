@@ -31,18 +31,23 @@
 
 .second-sub {
     padding-top: 10px;
+    padding-left: 15px;
 }
 
 .third-sub {
-    padding-top: 7px;
+    padding-top: 9px;
+    padding-left: 20px;
+    align-items: center;
+    text-align: center;
+
 }
 
-.second-sub, .third-sub p {
+.second-sub, .third-sub, .text-club-section p {
     font-size: 1.2rem;
     line-height: 2rem;
 }
 
-.second-sub, .third-sub p span {
+.second-sub, .third-sub, p span {
     font-weight: bold; 
 }
 
@@ -51,10 +56,23 @@
     border-radius: 6px;
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     padding: 30px;
     justify-content: space-evenly;
     margin: 40px;
+}
+
+.clubs-section h1, img {
+    text-align: center;
+}
+
+.clubs-section > .text-club-section {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
 }
 
 
