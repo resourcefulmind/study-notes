@@ -945,3 +945,4 @@ The "id" is preferably used as the key because every one of the items in the lis
 ### V2 of the project
 
 - Styling will be done via CSS in the `ProfileList.css` file.
+- Grid is preferable.
