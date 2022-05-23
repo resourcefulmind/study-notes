@@ -28,14 +28,14 @@ const ProfileList = (props) => {
                     </div>
                     <br />
                     <h2>Career</h2>
-                    <p>{profile.firstname} {profile.lastname}, since starting his managerial career has coached the following teams: </p>
+                    <p>{profile.firstname} {profile.lastname}, since starting his managerial career has managed a number of teams. You can find the last three teams managed below: </p>
                     <div>
                         <div className='clubs-section'>
                             <div>
                                 <h1>{profile.career[0].team.name}</h1>
                                 <img src={profile.career[0].team.logo} alt={profile.career[0].team.name}/>
                             </div>
-                            <div>
+                            <div className='text-club-section'>
                                 <p>Started Role As Head Coach: {profile.career[0].start}</p>
                                 <p>Ended Role As Head Coach: {profile.career[0].end}</p>
                             </div>
@@ -45,7 +45,7 @@ const ProfileList = (props) => {
                                 <h1>{profile.career[1].team.name}</h1>
                                 <img src={profile.career[1].team.logo} alt={profile.career[1].team.name}/>
                             </div>
-                            <div>
+                            <div className='text-club-section'>
                                 <p>Started Role As Head Coach: {profile.career[1].start}</p>
                                 <p>Ended Role As Head Coach: {profile.career[1].end}</p>
                             </div>
@@ -55,7 +55,7 @@ const ProfileList = (props) => {
                                 <h1>{profile.career[2].team.name}</h1>
                                 <img src={profile.career[2].team.logo} alt={profile.career[2].team.name}/>
                             </div>
-                            <div>
+                            <div className='text-club-section'>
                                 <p>Started Role As Head Coach: {profile.career[2].start}</p>
                                 <p>Ended Role As Head Coach: {profile.career[2].end}</p>
                             </div>
