@@ -68,8 +68,28 @@ The above ways were the early days of what we know now as **"Version Control".**
 
 ### How does Git work?
 
-Git is a version control system that gives a user the ability to make **"save points"** and track changes to code that you or your team members make. 
+Git is a version control system that gives a user the ability to make **"save points"** and track changes to code that you or your team members make.
 Save points are snapshots of your code at different times while you are working.
+
+A more concise definition would be that **Git** is a distributed version control system (DVCS) that allows multiple developers or other contributors to work on a project. It provides a way to work with one or more local branches and push them to a remote repository. Git is responsible for everything GitHub-related that happens locally on your computer. Key features provided by Git include:
+
+- It's installed and used on your local machine
+- Handles version control
+- Supports branching
+
+**WHILE**
+
+**GitHub** is a cloud platform that uses Git as its core technology. It simplifies the process of collaborating on projects and provides a website, command-line tools, and overall flow that allows developers and users to work together. GitHub acts as the "remote repository" mentioned previously in the Git section.
+Key features provided by GitHub include:
+
+- Issues
+- Discussions
+- Pull requests
+- Notifications
+- Labels
+- Actions
+- Forks
+- Projects
 
 Git makes it possible to make those save points and to also place those save points on servers like Github so you can share your code with everyone for easy collaboration.
 
@@ -210,14 +230,62 @@ Make this a rule
 
 Subsequent file pushes can only then be made for that repo by just using `git push`.
 
-
-**Additional Message**
-
 - If you want to host your new code online for free, open a new branch on the online repo called **gh-pages** and then you can view your live link by entering this in your browser
 
 **<your-Github-username>.github.io/<name-of-repo>/index.html**
 
-
 - Make sure it is the exact same name
 
 **Just like that ladies and gentlemen, your code has been stored safely in the cloud, it is in public and can be seen. I bet you feel like a hacker now right? You are no longer a beginner, lol.**
+
+### Additional Notes
+
+- When you create a pull request, include a summary of the changes and what problem they solve. You can include images, links, and tables to help convey this information. If your pull request addresses an issue, link the issue so that issue stakeholders are aware of the pull request and vice versa. If you link with a keyword, the issue will close automatically when the pull request merges. 
+
+- There are two primary ways people collaborate on GitHub:
+
+1. Shared repository
+2. Fork and pull
+
+With a shared repository, individuals and teams are explicitly designated as contributors with read, write, or administrator access. You most likely achieve this by cloning the repo.
+
+For an open source project, or for projects to which anyone can contribute, managing individual permissions can be challenging, but a fork and pull model allows anyone who can view the project to contribute.
+A fork is a copy of a project under a developer's personal account. Every developer has full control of their fork and is free to implement a fix or a new feature.
+Work completed in forks is either kept separate, or is surfaced back to the original project via a pull request. There, maintainers can review the suggested changes before they're merged.
+
+- You can find a full *git cheatsheet* [here](https://training.github.com/downloads/github-git-cheat-sheet.pdf)
+
+- What are Issues?
+
+Issues are where most of the communication between a project's consumers and development team occurs. An issue can be created to discuss a broad set of topics, including bug reports, feature requests, documentation clarifications, and more. Once an issue has been created, it can be assigned to owners, labels, projects, and milestones. You can also associate issues with pull requests and other GitHub items to provide future traceability.
+
+- What are Pull Requests?
+
+A pull request is the mechanism used to alert that the commits from one branch are ready to be merged into another branch. The developer submitting the pull request will often request one or more reviewers/maintainers to verify the code and approve the merge. These reviewers have the opportunity to comment on changes, add their own, or use the pull request itself for further discussion. Once the changes have been approved (if approval is required), the pull request's source branch (the compare branch) may be merged in to the base branch
+
+- What are labels? 
+
+Labels provide a way to categorize and organize issues and pull requests in a repository. As you create a GitHub repository several labels will automatically be added for you and new ones can also be created.
+
+Examples of Labels include:
+
+- bug
+- documentation
+- duplicate
+- help wanted
+- enhancement
+- question
+
+You can take Microsoft's short course on Github to really finetune your Github skills by following this [link](https://docs.microsoft.com/en-us/learn/modules/introduction-to-github/1-introduction)
+
+
+- Rules to live by for commit messages:
+
+Don’t end your commit message with a period.
+Keep your commit messages to 50 characters or less.
+
+Add extra detail in the extended description window if necessary. This is located just below the subject line.
+
+Use active voice. For example, "add" instead of "added" and "merge" instead of "merged".
+
+Think of your commit as expressing intent to introduce a change.
