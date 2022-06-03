@@ -422,3 +422,211 @@ function multiplyNumeric(obj) {
 }
 
 multiplyNumeric(menu);
+
+### Object references and copying
+
+A key difference between objects and primitives is that objects are stored and copied “by reference”, whereas primitive values: strings, numbers, booleans, etc – are always copied “as a whole value”.
+
+Take a look at these primitives:
+
+```
+let message = "hello";
+let phrase = "message";
+```
+
+The result of the above is two independent variables, each one storing the string "Hello!".
+
+MEANWHILE A variable assigned to an object stores not the object itself, but its “address in memory” – in other words “a reference” to it.
+
+Take a look
+
+```
+let user = {
+  name: "John"
+};
+```
+
+The object is stored somewhere in memory while the "user" variable has a "reference" to it.
+
+Think of an object variable (user in this case) as something that tells you the location of the object.
+
+When we perform actions with the object, e.g. take a property `user.name`, the JavaScript engine looks at what’s at that location and performs the operation on the actual object.
+
+Now here’s why it’s important.
+
+When an object variable is copied, the reference is copied, but the object itself is not duplicated as in the case of primitive variables.
+
+For instance
+
+```
+let user = {
+    name: "John"
+}
+
+let admin = user;
+```
+
+The two variables `user` and `admin` are storing a reference to the same object. It's one object and two references by two variables which is different from what was seen in the other where both primitive variables held a copy of the value each.
+
+Either object variable can still be used to access the object and modify its contents like so:
+
+```
+let user = { name: 'John' };
+
+let admin = user;
+
+admin.name = 'Pete'; // changed by the "admin" reference
+
+alert(user.name); // 'Pete', changes are seen from the "user" reference
+```
+
+It’s as if we had a cabinet with two keys and used one of them (admin) to get into it and make changes. Then, if we later use another key (user), we are still opening the same cabinet and can access the changed contents.
+
+### Object Comparisons by reference
+
+- Two objects are equal only if they are the same object. That is to say, only if they reference the same object.
+
+```
+let a = {};
+let b = a; // copy the reference
+
+alert( a == b ); // true, both variables reference the same object
+alert( a === b ); // true
+
+```
+
+That automatically means that two independent objects might contain the same object value and look alike but will never be equal because they do not reference the same object.
+
+```
+let Toyota = {
+    doors: 4
+}
+
+let Tesla = {
+    doors: 4  //two independent objects
+}
+
+alert (a == b); //false
+```
+For "greater than" comparisons or "object vs primitives" comparisons, objects have to first be converted to primitives. These are usually very rarely needed unless there are programming mistakes.
+
+### How do we clone and merge an Object?
+
+- There are two ways to duplicate an object.
+
+- One way to do this is by using the `Object.assign` syntax below;
+
+`Object.assign(dest, [src1, src2, src3...])`
+
+Where:
+
+1. The first argument `dest` is a target object.
+2. Further arguments src1, ..., srcN (can be as many as needed) are source objects.
+3. It copies the properties of all source objects src1, ..., srcN into the target dest. In other words, properties of all arguments starting from the second are copied into the first object.
+4. The call will return `dest`.
+
+**An important use of this is that it can be used to merge several objects into one**
+
+```
+let electoralCandidate = { name: "Peter Obi" };
+
+let qualities1 = { isCredible: true };
+let qualities2 = { isWasteful: false };
+
+// copies all properties from qualities1 and qualities2 into electoralCandidate
+
+Object.assign(electoralCandidate, qualities1, qualities2);
+
+console.log(electoralCandidate); // { name: "Peter Obi", isCredible: true, isWasteful: false }
+```
+
+- If the copied property name already exists, it gets overwritten:
+
+```
+let president2023 = { name: "Bola Ahmed Tinubu" };
+
+Object.assign(president2023, { name: "Peter Obi" });
+
+console.log(president2023.name); // now president2023 = { name: "Peter Obi" }
+
+```
+We also can use Object.assign to replace for..in loop for simple cloning:
+
+```
+let user = {
+  name: "John",
+  age: 30
+};
+
+let clone = Object.assign({}, user); //It copies all properties of user into the empty object and returns it.
+```
+
+- We can also create a new object and replicate the structure of the existing one, by iterating over its properties and copying them on the primitive level.
+
+Like so;
+
+```
+
+let user = {
+  name: "John",
+  age: 30
+};
+
+let clone = {}; // the new empty object
+
+// let's copy all user properties into it
+for (let key in user) {
+  clone[key] = user[key];
+}
+
+// now clone is a fully independent object with the same content
+clone.name = "Pete"; // changed the data in it
+
+alert( user.name ); // still John in the original object
+```
+
+### How do we achieve Nested cloning?
+
+Properties do not only have to reference primitives. They can also reference other objects and when cloned, they will share the nested objects being referenced will be one and the same and not two different copies.
+
+take a look:
+
+```
+let user = {
+  name: "John",
+  sizes: {
+    height: 182,
+    width: 50
+  }
+};
+
+let clone = Object.assign({}, user);
+
+alert( user.sizes === clone.sizes ); // true, same object
+
+// user and clone share sizes
+user.sizes.width++;       // change a property from one place
+alert(clone.sizes.width); // 51, get the result from the other one
+```
+
+- To fix that and make user and clone truly separate objects, we should use a cloning loop that examines each value of user[key] and, if it’s an object, then replicate its structure as well. That is called a “deep cloning”.
+
+We can use recursion to implement it. Or, to not reinvent the wheel, take an existing implementation, for instance _.cloneDeep(obj) from the JavaScript library lodash.
+
+NOTE:
+
+Take a look at the code below, 
+
+```
+const user = {
+  name: "John"
+};
+
+user.name = "Pete"; // (*)
+
+alert(user.name); // Pete
+```
+
+It might seem that the line (*) would cause an error, but it does not. The value of user is constant, it must always reference the same object, but properties of that object are free to change.
+
+In other words, the const user gives an error only if we try to set user=... as a whole.
