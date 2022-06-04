@@ -22,6 +22,30 @@
 
 - Joining FOSS et al
 
+- Using APIs like a developer
+
+- Documenting endpoints that have been added to APIs like a technical writer.
+
+- Documenting Conceptual sections for an API like Getting Started Tutorial, Product Overview, Status and Error Codes, Request Authorization, etc.
+
+- Exploring different ways to publish REST APi documentation.
+
+- Exploring tools and specifications like Github, static site generators like Jekyll, etc.
+
+- Leveraging Templates, building interactive API consoles for users to try out requests and see responses, version control.
+
+## Tools needed
+
+1. PC
+2. Text Editor
+3. Chrome Browser
+4. Postman
+5. Curl
+6. Git
+7. Github Account
+8. Stoplight Studio Editor
+9. OpenWeatherMap API Key
+
 ## What are Web APIs?
 
 - A Web API is an application programming interface for the Web. They exist to extend the functionality of a web browser in terms of supporting complex operations and helping to access data. For example, the Geolocation API can return the coordinates of where the browser is located.
