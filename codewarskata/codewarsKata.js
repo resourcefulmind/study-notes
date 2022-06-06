@@ -327,6 +327,103 @@ minMax([1,2,3,4,5])   == [1,5]
 minMax([2334454,5])   == [5, 2334454]
 minMax([1])           == [1, 1]
 
-// Kata for 16th May,2022 
+// Kata for 6th June,2022 
 // First Task
+// ATM machines allow 4 or 6 digit PIN codes and PIN codes cannot contain anything but exactly 4 digits or exactly 6 digits.
 
+// If the function is passed a valid PIN string, return true, else return false.
+
+function validatePIN (pin) {
+  //return true or false
+  return /^(\d{4}|\d{6})$/.test(pin);
+
+}
+
+// "1234"   -->  true
+// "12345"  -->  false
+// "a234"   -->  false
+
+// Second Task - Ones and Zeros
+
+// Given an array of ones and zeroes, convert the equivalent binary value to an integer.
+
+// Eg: [0, 0, 0, 1] is treated as 0001 which is the binary representation of 1.
+
+
+const binaryArrayToNumber = arr => {
+  // your code
+  //first join the values of the array indexes together
+  let conversion = arr.join('');
+  //convert to integer
+  return parseInt(conversion, 2);
+};
+
+Testing: [0, 0, 0, 1] ==> 1
+Testing: [0, 0, 1, 0] ==> 2
+Testing: [0, 1, 0, 1] ==> 5
+Testing: [1, 0, 0, 1] ==> 9
+Testing: [0, 0, 1, 0] ==> 2
+Testing: [0, 1, 1, 0] ==> 6
+Testing: [1, 1, 1, 1] ==> 15
+Testing: [1, 0, 1, 1] ==> 11
+
+
+// Third Task - Volume of a Cuboid
+
+// Bob needs a fast way to calculate the volume of a cuboid with three values: the length, width and height of the cuboid. Write a function to help Bob with this calculation.
+
+class Kata {
+  static getVolumeOfCuboid(length, width, height) {
+    // your code here
+    return length * width * height
+  }
+}
+
+
+// Fourth Task - Will there be enough space?
+
+// You have to write a function that accepts three parameters:
+
+// cap is the amount of people the bus can hold excluding the driver.
+// on is the number of people on the bus excluding the driver.
+// wait is the number of people waiting to get on to the bus excluding the driver.
+// If there is enough space, return 0, and if there isn't, return the number of passengers he can't take.
+
+
+
+function enough(cap, on, wait) {
+  // your code here
+  return Math.max(wait + on - cap, 0)
+}
+
+enough(10, 5, 5);
+// 0, He can fit all 5 passengers
+enough(100, 60, 50);
+// 10, He can't fit 10 out of 50 waiting
+
+
+//Fifth Task - Century From Year
+
+// Introduction
+
+// The first century spans from the year 1 up to and including the year 100, the second century - from the year 101 up to and including the year 200, etc.
+
+// Task
+
+// Given a year, return the century it is in.
+function century(year) {
+  // Finish this :)
+  let result = 0;
+  // loop over the year
+  for (let i = 0; i < year; i++) {
+    if (i % 100 === 0) {
+      result++;
+    }
+  }
+  return result;
+}
+
+1705 --> 18
+1900 --> 19
+1601 --> 17
+2000 --> 20
