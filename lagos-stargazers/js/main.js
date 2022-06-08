@@ -18,6 +18,7 @@ function getFetch(){
         }
         document.querySelector('h2').innerText = data.title
         document.querySelector('h6').innerText = data.explanation
+
         
       })
       .catch(err => {
