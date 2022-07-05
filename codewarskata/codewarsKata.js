@@ -358,14 +358,14 @@ const binaryArrayToNumber = arr => {
   return parseInt(conversion, 2);
 };
 
-Testing: [0, 0, 0, 1] ==> 1
-Testing: [0, 0, 1, 0] ==> 2
-Testing: [0, 1, 0, 1] ==> 5
-Testing: [1, 0, 0, 1] ==> 9
-Testing: [0, 0, 1, 0] ==> 2
-Testing: [0, 1, 1, 0] ==> 6
-Testing: [1, 1, 1, 1] ==> 15
-Testing: [1, 0, 1, 1] ==> 11
+// Testing: [0, 0, 0, 1] ==> 1
+// Testing: [0, 0, 1, 0] ==> 2
+// Testing: [0, 1, 0, 1] ==> 5
+// Testing: [1, 0, 0, 1] ==> 9
+// Testing: [0, 0, 1, 0] ==> 2
+// Testing: [0, 1, 1, 0] ==> 6
+// Testing: [1, 1, 1, 1] ==> 15
+// Testing: [1, 0, 1, 1] ==> 11
 
 
 // Third Task - Volume of a Cuboid
@@ -525,3 +525,60 @@ function cockroachSpeed(s) {
   
   return Math.floor(s * (distanceConversion / timeConversion))
 }
+
+// Kata for 5th July,2022 
+// First Task
+// Trolls are attacking your comment section!
+
+// A common way to deal with this situation is to remove all of the vowels from the trolls' comments, neutralizing the threat.
+
+// Your task is to write a function that takes a string and return a new string with all vowels removed.
+
+// For example, the string "This website is for losers LOL!" would become "Ths wbst s fr lsrs LL!".
+
+// Note: for this kata y isn't considered a vowel.
+
+
+// My Solution
+
+// To remove characters from a string, it is advisable to use either of the following three methods.
+// substr() – removes a character from a particular index in the String.
+// replace() – replaces a specific character/string with another character/string.
+// slice() – extracts parts of a string between the given parameters.
+// Using the string replace() function with a regular expression.
+
+//In my case I would be using the replace() with a regular expression.
+
+function disemvowel(str) {
+  return str.replace(/[aeiou]/gi, '');
+}
+
+//Second Task
+// Create a function which answers the question "Are you playing banjo?".
+// If your name starts with the letter "R" or lower case "r", you are playing banjo!
+
+// The function takes a name as its only argument, and returns one of the following strings:
+
+// name + " plays banjo" 
+// name + " does not play banjo"
+// Names given are always valid strings.
+
+
+// solution
+function areYouPlayingBanjo(name) {
+  // Implement me
+  if (name[0] === 'R' || name[0] === 'r') {
+    return `${name} plays banjo`;
+  } else {
+    return `${name} does not play banjo`;
+  }
+  return name;
+}
+
+// Third Task
+// You live in the city of Cartesia where all roads are laid out in a perfect grid. You arrived ten minutes too early to an appointment, so you decided to take the opportunity to go for a short walk. The city provides its citizens with a Walk Generating App on their phones -- everytime you press the button it sends you an array of one-letter strings representing directions to walk (eg. ['n', 's', 'w', 'e']). You always walk only a single block for each letter (direction) and you know it takes you one minute to traverse one city block, so create a function that will return true if the walk the app gives you will take you exactly ten minutes (you don't want to be early or late!) and will, of course, return you to your starting point. Return false otherwise.
+
+// Note: you will always receive a valid array containing a random assortment of direction letters ('n', 's', 'e', or 'w' only). It will never give you an empty array (that's not a walk, that's standing still!).
+
+// Solution
+// To be continued tomorrow as first task.
