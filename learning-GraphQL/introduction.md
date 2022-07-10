@@ -286,27 +286,49 @@ subscription {
 Now that you have a basic understanding of what queries, mutations, and subscriptions look like, let’s put it all together and learn how you can write a schema that would allow you to execute the examples you’ve seen so far.
 The schema is one of the most important concepts when working with a GraphQL API. It specifies the capabilities of the API and defines how clients can request the data. It is often seen as a contract between the server and client.
 Generally, a schema is simply a collection of GraphQL types. However, when writing the schema for an API, there are some special root types:
- type Query { ... }
+
+```
+type Query { ... }
 type Mutation { ... }
 type Subscription { ... }
+```
+
 The Query, Mutation, and Subscription types are the entry points for the requests sent by the client. To enable the allUsers-query that we saw before, the Query type would have to be written as follows:
+
+```
  type Query {
   allUsers: [User!]!
 }
+```
+
 allUsers is called a root field of the API. Considering again the example where we added the last argument to the allUsers field, we’d have to write the Query as follows:
+
+```
  type Query {
   allUsers(last: Int): [User!]!
 }
+```
+
 Similarly, for the createUser-mutation, we’ll have to add a root field to the Mutation type:
+
+```
  type Mutation {
   createUser(name: String!, age: Int!): User!
 }
+```
+
 Notice that this root field takes two arguments as well, the name and the age of the new User.
 Finally, for the subscriptions, we’d have to add the newUser root field:
+
+```
  type Subscription {
   newUser: User!
 }
+```
+
 Putting it all together, this is the full schema for all the queries and mutation that you have seen in this chapter:
+
+```
  type Query {
   allUsers(last: Int): [User!]!
   allPosts(last: Int): [Post!]!
@@ -333,3 +355,4 @@ type Post {
   title: String!
   author: User!
 }
+```
