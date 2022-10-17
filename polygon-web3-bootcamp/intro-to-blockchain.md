@@ -5,7 +5,9 @@ As blockchain continues to grow and become more user-friendly, the onus is on yo
 ## What are the current problems in today's banking system?
 
 - Relatively high cost of transaction fees.
-- Double spending. Banks and payment processors are accountable to the local central bank and government. For this reason, they are usually honest. However, the costs imposed by this system are many. Most financial institutions charge fees and impose limits on the size, type, and number of transactions a client can execute. Additionally, transactions can take anywhere from 30-90 days to settle depending on the transaction type.
+- Double spending.
+- Banks and payment processors are accountable to the local central bank and government. For this reason, they are usually honest. However, the costs imposed by this system are many. Most financial institutions charge fees and impose limits on the size, type, and number of transactions a client can execute. 
+- Additionally, transactions can take anywhere from 30-90 days to settle depending on the transaction type.
 - Prone to hacking and extraction of sensitive customer data.
 
 ## How can a Blockchain solve these problems?
@@ -34,7 +36,7 @@ A public ledger records all bitcoin transactions where it is accessible to every
 
 ### What is Blockchain?
 
-It is a decentralized system of secure and trusted distributed databases. It is a distributed ledger which records and shared the transaction details across many nodes which are part of the network so that the data is not modified. Each and every participant has the same copy of the immutable ledger(cannot be changed)
+It is a decentralized system of secure and trusted distributed databases. It is a distributed ledger which records and shares the transaction details across many nodes which are part of the network so that the data is not modified. Each and every participant has the same copy of the immutable ledger(cannot be changed)
 
 > In simpler words, a blockchain is a chain of blocks that contain information. It is a distributed ledger that duplicates and distributes transactions across the network of computers participating in the blockchain.
 
@@ -54,7 +56,7 @@ It is a decentralized system of secure and trusted distributed databases. It is 
 
 - It is highly secure
 
-Blockchains use digital signature features to conduct fraud-free transactions whereby the data of an individual by the other users without a specific digital signature.
+Blockchains use digital signature features to conduct fraud-free transactions whereby the data of an individual cannot be altered by the other users without a specific digital signature.
 
 - Decentralized
 
@@ -146,6 +148,8 @@ Since blockchain technology employs a shared ledger, distributed ledger on a dec
 - Scenario: food products can be tracked from the moment they are shipped out, all throughout their journey, and up until final delivery. This information can be helpful because if there is a contamination outbreak, the source of the outbreak can be easily traced.
 
 ## Conclusion
+
+Blockchain technology offers benefits like transparency and unbreachable security by enhancing efficiency, minimizing operational costs, and eliminating intermediaries.
 
 Blockchain possesses great potential for the future and encourages transparency and decentralization. Another major advantage is the level of security it can provide by protecting and securing sensitive data from online transactions. It is also quite fast anf convenient as it completes under a few minutes. There is also no government interference although in recent times, this has come under heavy fire from regulators and government financial agencies alike.
 
