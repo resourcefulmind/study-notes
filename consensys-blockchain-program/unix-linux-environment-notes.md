@@ -31,4 +31,4 @@
 
 - A good OS is easy for a dev to use if the programming language fits the style of the system. Denis Richie created the C language in the course of the unix development.
 
-- C is a high level language with modern programming constructs that lets you avoid the details of the machine when you want to but when you need to, you can get at the details of the machine and control everything but you are not forced to do that. You can write OS in C and still have somethignthat can be portable to other machines. Devs can write their code and not be bothered with what is going on under the hood.
+- C is a high level language with modern programming constructs that lets you avoid the details of the machine when you want to but when you need to, you can get at the details of the machine and control everything but you are not forced to do that. You can write OS in C and still have somethig that can be portable to other machines. Devs can write their code and not be bothered with what is going on under the hood.
