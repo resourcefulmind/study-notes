@@ -303,6 +303,34 @@ To rename files, the command is `mv oldname.ext newname.ext`
 
 - Command History to access any commands you've run, simply press the "up" arrow on the command line prompt. The terminal will scroll through the history of your commands starting from the most recent. To execute the command, simply hit enter.
 
+8. rmdir command
+
+If you need to delete a directory, use the rmdir command. However, rmdir only allows you to delete empty directories.
+
+9. rm command
+
+The rm command is used to delete directories and the contents within them. If you only want to delete the directory — as an alternative to rmdir — use rm -r.
+
+Note: Be very careful with this command and double-check which directory you are in. This will delete everything and there is no undo.
+
+11. locate command
+
+You can use this command to locate a file, just like the search command in Windows. What’s more, using the -i argument along with this command will make it case-insensitive, so you can search for a file even if you don’t remember its exact name.
+
+To search for a file that contains two or more words, use an asterisk (*). For example, locate -i school*note command will search for any file that contains the word “school” and “note”, whether it is uppercase or lowercase.
+
+12. find command
+
+Similar to the locate command, using find also searches for files and directories. The difference is, you use the find command to locate files within a given directory.
+
+As an example, find /home/ -name notes.txt command will search for a file called notes.txt within the home directory and its subdirectories.
+
+Other variations when using the find are:
+To find files in the current directory use, find . -name notes.txt
+To look for directories use, / -type d -name notes. txt
+
+For more check [here](https://www.reddit.com/r/commandline/comments/myquqp/linux_basic_commands_every_user_should_know/) and [here](https://help.ubuntu.com/community/AdvancedCommandlineHowto).
+
 ## Running a File (Application) within a Directory
 
 - To run a file, navigate to the directory holding the file and use the format: $ ./filename.extension.
