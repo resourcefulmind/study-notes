@@ -64,6 +64,10 @@ GUI is made possible by the use of a combination of technologies anf devices to 
 
 ## Command Line Interface (CLI)
 
+- An overarching philosophy with command line clients is the concept that Everything is a File. This means that every item you see on the command line interface or terminal is a file that can either be written to (changed) or read.
+
+- No matter what kind of file the folder holds, the command line will simply understand it as a file. This is a form of abstraction which allows the command line to generalize computation in a powerful way. 
+
 - receives commands from a user in the form of lines of text
 
 - provides a means of setting parameters for the environment, invoking executables and providing information to them as to what actions they are to perform.
@@ -181,3 +185,157 @@ Built-in usage help and man pages commonly employ a small syntax to describe the
 - Saves time
 - Can be handy when your system has issues and no GUI
 - Useful in scripting repetitive tasks
+
+## Libraries
+
+- Libraries have two roles which illustrate abstraction.
+
+    - Allow programmers to reuse commonly accessed code.
+
+    - Act as a black box implementing functionality for the programmer.
+
+- The standard library of a UNIX platform is generically referred to as `libc`. It provides the basic interface to the system: fundamental calls such as read(), write() and printf(). This API is described in its entirety by a specification called POSIX
+
+## Command Line Syntax
+
+- **Prompt**: The prompt shows that you've properly loaded your command line and it's ready to receive instructions.
+
+```bash
+o.s@EngrOpe1Air1877 ~ %
+```
+
+> The above shows that I am O.S and on a machine called EngrOpe1Air1877 which is a Macbook Air. The % sign represents the command line and means that you should copy everythingn after the % but not include the %. You can also see $ in some cases.
+
+## Single Command
+
+- Some CLI commands will include but not limited to: 
+
+    - `ls`: will list all the files in the current directory.
+
+    - `pwd`: means **print working directory** and is used to display your current location in the computer.
+
+    ![showing pwd command](https://res.cloudinary.com/resourcefulmind-inc/image/upload/v1674218129/Screenshot_2023-01-20_at_1.32.40_PM_mcicnk.png)
+    
+    - `COMMAND <ARGUMENT>`: Arguments almost always come after a command and the command always operates on the argument. A typical example can be seen with the `echo` and `cat` commands that will act on the arguments below...
+
+        - `echo`: prints any argument to the command line output.
+
+        ![echo command](https://res.cloudinary.com/resourcefulmind-inc/image/upload/v1674218730/Screenshot_2023-01-20_at_1.45.16_PM_xzh0dv.png)
+
+        - `cat`: prints out the "contents" of an argument to the command line output. If the file you want to read is a directory, the command line is going to output that it is a directory. If it is a file, it will display the contents of that file.
+        
+        ![directory example](https://res.cloudinary.com/resourcefulmind-inc/image/upload/v1674219599/Screenshot_2023-01-20_at_1.59.47_PM_k1jzom.png)
+
+        ![cat displaying content of a file](https://res.cloudinary.com/resourcefulmind-inc/image/upload/v1674219665/Screenshot_2023-01-20_at_2.00.49_PM_lfe5qx.png)
+
+    - `COMMAND -option`: options are passed after a command to alter its original behavior. A few examples are: 
+
+    - `ls -a`: where `ls` is the list command and `-a` is an option that tells `ls` to not only display a list of all the files in the current directory but to also display those files that are hidden in that same current directory.
+
+    - When option is used in conjunction with running a program from the command line, we call it a flag. eg `node -v` which helps a user know what version of a program they are currently using and can be usefuln in troubleshooting.
+
+    > It's possible to run a command with five, ten or more flags
+
+## Multiple Commands
+
+- Multiple commands can also be run in the same terminal line by the use of operators like `&&`. Commands of this nature should naturally look like this:
+
+![multiple commands](https://res.cloudinary.com/resourcefulmind-inc/image/upload/v1674220591/Screenshot_2023-01-20_at_2.16.20_PM_rswlgh.png)
+
+The above tells the command line to create a directory named `consensys-test-folder` and then  navigate into the directory created and create a file named `intro.text`. 
+
+> order of the commands is extremely important -- we cannot run cd before mkdir in the example above.
+
+## Control Flow
+
+- The ability to redirect the input or output of a command.
+
+- An example of this is the > operator, which redirects the output of a command as an argument to the second command. For example, we can pass the content of the echo statement which we made earlier into the `intro.txt` file and then check if it was passed in successfully with the `cat` command.
+
+```bash
+echo 'you can be a world class developer with the consensys program' > intro.txt 
+
+cat intro.txt
+```
+
+![control flow example](https://res.cloudinary.com/resourcefulmind-inc/image/upload/v1674221392/Screenshot_2023-01-20_at_2.29.41_PM_pmlwnh.png)
+
+- Another example is the `pipe` or `|` which does almost the same thing as `>` but with a difference of being able to do things at the same time.
+
+```bash
+ls | sort
+```
+
+- `$` is the command line prompt and `~` is stands for your home directory.
+
+- `pwd` allows you "to find out the path of the current working directory (folder) you’re in. The command will return an absolute (full) path, which is basically a path of all the directories that starts with a forward slash (/). An example of an absolute path is /home/username."
+- `cd` "allow[s] you to change directories. When you open a terminal you will be in your home directory. To move around the file system you will use `cd`.
+To navigate to your home directory, use `cd` or `cd ~`;
+    - To navigate up one directory level, use `cd ...`
+    - To navigate through multiple levels of directory at once, specify the full directory path that you want to go to. For example, use:
+    `cd /var/www` to go directly to the /www subdirectory of /var/.`
+
+    As another example, `cd ~/Desktop` will move you to the Desktop subdirectory inside your home directory.
+
+- `ls` "is used to view the contents of a directory. By default, this command will display the contents of your current working directory. If you want to see the content of other directories, type `ls` and then the directory’s path. For example, enter `ls /home/username/Documents` to view the content of Documents. There are variations you can use with the `ls` command:
+
+    `ls -R` will list all the files in the sub-directories as well.
+
+    `ls -a` will show the hidden files.
+
+    `ls -al` will list the files and directories with detailed information like the permissions, size, owner, etc."
+
+- `mkdir`: The `mkdir` command will allow you to create directories. Example: `mkdir music` will create a directory called "music" Remember, a common multiple command line is `mkdir NEW_DIRECTORY && cd NEW_DIRECTORY`.
+
+- `clear` will clear all typing on the terminal and give you a fresh line.
+
+- `CONTROL + c` will interrupt any terminal process and return you to the prompt.
+
+- `cat` is used to list the contents of a file [...]. To run this command, type cat followed by the file’s name and its extension. For instance: `cat file.txt`.
+
+- `cp` cop[ies] files from the current directory to a different directory. For instance, the command `cp scenery.jpg /home/username/Pictures` would create a copy of scenery.jpg (from your current directory) into the Pictures directory.
+
+- `mv` is to [used to] move files, although it can also be used to rename files. The arguments in `mv` are similar to the `cp` command. You need to type `mv`, the file’s name, and the destination’s directory. 
+For example: 
+`mv file.txt /home/username/Documents`. 
+
+To rename files, the command is `mv oldname.ext newname.ext`
+
+- Command History to access any commands you've run, simply press the "up" arrow on the command line prompt. The terminal will scroll through the history of your commands starting from the most recent. To execute the command, simply hit enter.
+
+## Running a File (Application) within a Directory
+
+- To run a file, navigate to the directory holding the file and use the format: $ ./filename.extension.
+
+- For Python files, for example, you need to make sure Python is installed and use the format $ python python-file-name.py
+
+- For JavaScript files, you need to install Node and run with the format $ node javascriptFile.js
+
+## System Information Commands
+
+- **top (table of processes)** command allows you to quickly see the what programs are running on your machine and how many resources they are consuming. It's a quick alternative to the Activity Monitor in MacOS or Task Manager in Windows. To quit top, simply press q
+
+## Networking and Internet Commands
+
+> Note: Always be careful when downloading from the command line. The GUI provides safeguards and visual cues to keep you aware of nefarious activity, but that might not be the case with your command line. Only download from locations you trust and triple-check before running software you've downloaded.
+
+Downloading a File to download a file from a specific internet address, you use `curl ADDRESS_OF_FILE` on MacOS and `wget ADDRESS_OF_FILE` on Linux. The file will download to the current directory you run the command in. If you need to move the file to another directory, use `mv`
+
+- Decompressing / Unarchiving files Software may be "bundled" or compressed with tar or zip formats. Use the `tar` and `unzip` commands to decompress the files into your current directory. To learn more, type `man gunzip` or `man tar` in your terminal.
+
+## sudo and privileges
+
+In trying out some command line exercises, you may have been confronted with a message that looked something like this:
+
+`You do not have sufficient privilege to perform this operation`.
+
+> Certain important files are protected from being read or changed by the user. However, these permissions can be changed or overridden by putting sudo at the beginning of your command. You must be extremely careful about using this, though, as you can accidentally commit serious damage to your computer while operating as sudo
+
+
+## $PATH
+
+- $PATH "is an environment variable on Unix-like operating systems specifying a set of directories where executable programs are located" (source).
+
+- $PATH is important because it allows you to run programs from your command line without specifying the directory where the program is located. For example, you can run `npm install dependencies` without specifying where `npm` is located because your computer has Node and `npm` linked on the `$PATH` variable.
+
+**man intro**: If you type this into your MacOS or Linux prompt, it will walk you through a command line basics in your own terminal.
