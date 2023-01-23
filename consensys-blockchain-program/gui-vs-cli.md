@@ -367,3 +367,66 @@ In trying out some command line exercises, you may have been confronted with a m
 - $PATH is important because it allows you to run programs from your command line without specifying the directory where the program is located. For example, you can run `npm install dependencies` without specifying where `npm` is located because your computer has Node and `npm` linked on the `$PATH` variable.
 
 **man intro**: If you type this into your MacOS or Linux prompt, it will walk you through a command line basics in your own terminal.
+
+## Terminal Emulators
+
+- are ways of making the command line interface easier to work with. 
+
+- For MacOS, there is iTerm2, Hyper, cool-retro-term.
+
+- For Linux, there is Hyper, Guake, and cool-retro-term
+
+- For windows there is the Windows terminal.
+
+## Terminal Shortcuts
+
+* CTRL + c Interrupts and quits the process currently running. Crucial in stopping terminal line programs
+* CTRL + a Moves your cursor to the beginning of the line
+* CTRL + e Moves your cursor to the end of the line
+* CTRL + l Clears your screen without typing clear
+* CTRL + k Delete from current cursor position to end of the line
+* CTRL + t (Linux) / Escape + t (Mac) Will swap the two words that appear immediately before the cursor
+* CTRL + r Search your previous command history, easier than using up or down arrows
+
+## Remapping
+
+- the process of changing one key on your keyboard to be another.
+
+## Aliases
+
+- short commands that the terminal interprets as longer commands. When they're applied to commands you run often, they can save significant time. A very common alias people create is mc DIRECTORY_NAME which the terminal will interpret as mkdir DIRECTORY_NAME && cd DIRECTORY_NAME, essentially creating and navigating to the folder in one command.
+
+- To create a new alias, first find out which commands you have been using frequently. You can use: 
+
+```bash
+history | awk '{print $2}' | sort | uniq -c | sort -rn | head
+```
+
+- Locate the correct file to create your aliases. Typically a profile or a run command file but it all depends on your shell.
+
+- For bash, you'll want to create or edit ~/.bash_profile or ~/.bashrc
+
+```bash
+cd ~
+touch .bash_profile
+```
+
+- For zsh, the default for MacOS 10.15 Catalina and later, you'll want to edit ~/.zprofile or ~/.zshrc.
+
+- I created a bash profile. Let's assume i want to create aliases for git commands, I have to navigate to the file and edit in vscode
+
+```bash
+code .bash_profile
+```
+
+- Add aliases `alias ga='git add -A && git commit -m'` and usage will be **ga "some message"**, `alias gm='git push origin master'` and `alias gr='grep --color -r'`
+
+```bash
+alias ga='git add -A && git commit -m'
+alias gm='git push origin master'
+alias gr='grep --color -r'
+```
+
+- After that reset to make sure it is working by running `source ~/.bash_profile`. 
+
+- Then run `alias` to see the list of aliases the bash profile file is using.
